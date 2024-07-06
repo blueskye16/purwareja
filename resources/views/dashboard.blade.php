@@ -5,16 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <title>Dashboard</title>
 </head>
 
-<body>
-    <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700 sticky top-0">
+<body class="bg-gray-900">
+    <nav class="sticky top-0 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+                <img src="/images/logo-purwareja.png" class="h-8" alt="Logo Purwareja" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Desa Purwareja</span>
             </a>
             <button data-collapse-toggle="navbar-dropdown" type="button"
                 class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -48,16 +51,16 @@
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-400"
                                 aria-labelledby="dropdownLargeButton">
                                 <li>
-                                    <a href="#"
-                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                    <a href="/"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Beranda</a>
                                 </li>
                                 <li>
                                     <a href="#"
-                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pemerintahan</a>
                                 </li>
                                 <li>
                                     <a href="#"
-                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Potensi</a>
                                 </li>
                             </ul>
                             <div class="py-1">
@@ -84,15 +87,42 @@
         </div>
     </nav>
 
-
-    <h1 class="text-9xl">hello world</h1>
-    <h1 class="text-9xl">hello world</h1>
-    <h1 class="text-9xl">hello world</h1>
-    <h1 class="text-9xl">hello world</h1>
-    <h1 class="text-9xl">hello world</h1>
-    <h1 class="text-9xl">hello world</h1>
-    <h1 class="text-9xl">hello world</h1>
-    <h1 class="text-9xl">hello world</h1>
+    <!-- Jumbotron -->
+    <div class="relative overflow-hidden rounded-lg bg-cover bg-bottom bg-no-repeat p-12 text-center"
+        style="background-image: url('/images/bg-hero.jpg'); height: 90vh">
+        <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-fixed"
+            style="background-color: rgba(0, 0, 0, 0.6)">
+            <div class="flex h-full items-center justify-center">
+                <div class="text-white">
+                    <h2 class="mb-4 text-4xl font-semibold">Heading</h2>
+                    <h4 class="mb-6 text-xl font-semibold">Subheading</h4>
+                    <button type="button"
+                        class="rounded border-2 border-neutral-50 px-7 pb-[8px] pt-[10px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
+                        data-twe-ripple-init data-twe-ripple-color="light">
+                        Call to action
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Jumbotron -->
+    {{-- Section-Jumbotron --}}
+    {{-- <div class="relative overflow-hidden bg-cover bg-no-repeat p-12 text-center"
+        style="background-image: url('/images/bg-batik.jpg'); height: 140px">
+        <h1 class="text-center">hellffo world</h1>
+    </div> --}}
+    <div class="relative overflow-hidden bg-cover bg-no-repeat p-12 text-center"
+        style="background-image: url('/images/bg-batik.jpg'); height: 140px">
+        <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-fixed"
+            style="background-color: rgba(0, 0, 0, 0.4)">
+            <h1 class="text-center">hello world</h1>
+        </div>
+    </div>
+    <h1 class="text-xl">hellow</h1>
+    <h1 class="text-xl">hellow</h1>
+    <h1 class="text-xl">hellow</h1>
+    <h1 class="text-xl">hellow</h1>
+    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
 </body>
 
 </html>
