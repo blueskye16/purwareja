@@ -13,7 +13,7 @@
 </head>
 
 <body class="bg-gray-900">
-    <nav class="sticky top-0 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+    <nav class="sticky top-0 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700 z-10">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="/images/logo-purwareja.png" class="h-8" alt="Logo Purwareja" />
@@ -87,84 +87,12 @@
         </div>
     </nav>
 
-    {{-- Slider --}}
-
-    {{-- <div id="indicators-carousel" class="relative w-full h-[90vh]" data-carousel="static">
-        <!-- Carousel wrapper -->
-        <div class="relative w-full h-full overflow-hidden rounded-lg">
-            <!-- Item 1 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                <img src="/images/bg-hero.jpg" class="absolute block w-full h-full object-cover" alt="...">
-            </div>
-            <!-- Item 2 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/docs/images/carousel/carousel-2.svg" class="absolute block w-full h-full object-cover"
-                    alt="...">
-            </div>
-            <!-- Item 3 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/docs/images/carousel/carousel-3.svg" class="absolute block w-full h-full object-cover"
-                    alt="...">
-            </div>
-            <!-- Item 4 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/docs/images/carousel/carousel-4.svg" class="absolute block w-full h-full object-cover"
-                    alt="...">
-            </div>
-            <!-- Item 5 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/docs/images/carousel/carousel-5.svg" class="absolute block w-full h-full object-cover"
-                    alt="...">
-            </div>
-        </div>
-        <!-- Slider indicators -->
-        <div class="absolute z-30 flex space-x-3 -translate-x-1/2 rtl:space-x-reverse bottom-5 left-1/2">
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
-                data-carousel-slide-to="0"></button>
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
-                data-carousel-slide-to="1"></button>
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
-                data-carousel-slide-to="2"></button>
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4"
-                data-carousel-slide-to="3"></button>
-            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5"
-                data-carousel-slide-to="4"></button>
-        </div>
-        <!-- Slider controls -->
-        <button type="button"
-            class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-            data-carousel-prev>
-            <span
-                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M5 1 1 5l4 4" />
-                </svg>
-                <span class="sr-only">Previous</span>
-            </span>
-        </button>
-        <button type="button"
-            class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-            data-carousel-next>
-            <span
-                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="m1 9 4-4-4-4" />
-                </svg>
-                <span class="sr-only">Next</span>
-            </span>
-        </button>
-    </div> --}}
-
     {{-- hero-jumbotron --}}
 
     <section class="bg-white dark:bg-gray-900">
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
             <div class="flex flex-col justify-center">
-                <p>Website resmi</p>
+                <p class="text-gray-600 text-lg">Website Resmi</p>
                 <h1
                     class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
                     Pemerintahan Desa Purwareja</h1>
@@ -173,36 +101,23 @@
                 <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0">
                     <a href="#"
                         class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
-                        Get started
-                        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        Telusuri Konten
+                        <svg class="w-3.5 h-3.5 ms-2 rotate-90" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 14 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M1 5h12m0 0L9 1m4 4L9 9" />
                         </svg>
                     </a>
-                    <a href="#"
+                    {{-- <a href="#"
                         class="py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                         Learn more
-                    </a>
+                    </a> --}}
                 </div>
             </div>
             <div>
-                {{-- <iframe class="mx-auto w-full lg:max-w-xl h-64 rounded-lg sm:h-96 shadow-xl"
-                    src="https://www.youtube.com/embed/KaLxCiilHns" title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe> --}}
-                {{-- <video src="/videos/vid-purwareja.mp4"></video> --}}
-
-                {{-- <video class="w-full" controls>
-                    <source src="/videos/vid-purwareja.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video> --}}
-
-                {{-- Carousel --}}
-
-                <div id="indicators-carousel" class="relative w-full" data-carousel="static">
+                <div id="indicators-carousel" class="relative w-full z-0" data-carousel="static">
                     <!-- Carousel wrapper -->
-                    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                    <div class="relative h-44 overflow-hidden rounded-lg lg:h-96 md:h-52">
                         <!-- Item 1 -->
                         <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
                             <video class="absolute block w-full h-full object-cover" controls>
@@ -212,27 +127,23 @@
                         </div>
                         <!-- Item 2 -->
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="/images/bg-hero.jpg"
-                                class="absolute block w-full h-full object-cover"
-                                alt="...">
+                            <img src="/images/bg-hero.jpg" class="absolute block w-full h-full object-cover"
+                                alt="hero image">
                         </div>
                         <!-- Item 3 -->
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="/docs/images/carousel/carousel-3.svg"
-                                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                alt="...">
+                            <img src="/images/bg-hero.jpg" class="absolute block w-full h-full object-cover"
+                                alt="hero image">
                         </div>
                         <!-- Item 4 -->
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="/docs/images/carousel/carousel-4.svg"
-                                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                alt="...">
+                            <img src="/images/bg-hero.jpg" class="absolute block w-full h-full object-cover"
+                                alt="hero image">
                         </div>
                         <!-- Item 5 -->
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="/docs/images/carousel/carousel-5.svg"
-                                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                alt="...">
+                            <img src="/images/bg-hero.jpg" class="absolute block w-full h-full object-cover"
+                                alt="hero image">
                         </div>
                     </div>
                     <!-- Slider indicators -->
@@ -281,43 +192,30 @@
         </div>
     </section>
 
-
-    <!-- Jumbotron -->
-    {{-- <div class="relative overflow-hidden rounded-lg bg-cover bg-bottom bg-no-repeat p-12 text-center"
-        style="background-image: url('/images/bg-hero.jpg'); height: 90vh">
-        <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-fixed"
-            style="background-color: rgba(0, 0, 0, 0.6)">
-            <div class="flex h-full items-center justify-center">
-                <div class="text-white">
-                    <h2 class="mb-4 text-4xl font-semibold">Heading</h2>
-                    <h4 class="mb-6 text-xl font-semibold">Subheading</h4>
-                    <button type="button"
-                        class="rounded border-2 border-neutral-50 px-7 pb-[8px] pt-[10px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
-                        data-twe-ripple-init data-twe-ripple-color="light">
-                        Call to action
-                    </button>
-                </div>
-            </div>
+    <!-- component -->
+    <div class="relative flex max-w-[24rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mt-10">
+        <div class="relative m-0 overflow-hidden rounded-none bg-transparent bg-clip-border text-gray-700 shadow-none">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1471&amp;q=80"
+                alt="ui/ux review check" />
         </div>
-    </div> --}}
-    <!-- Jumbotron -->
-
-    {{-- Section-Jumbotron --}}
-    {{-- <div class="relative overflow-hidden bg-cover bg-no-repeat p-12 text-center"
-        style="background-image: url('/images/bg-batik.jpg'); height: 140px">
-        <h1 class="text-center">hellffo world</h1>
-    </div> --}}
-    <div class="relative overflow-hidden bg-cover bg-no-repeat p-12 text-center"
-        style="background-image: url('/images/bg-batik.jpg'); height: 140px">
-        <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-fixed"
-            style="background-color: rgba(0, 0, 0, 0.4)">
-            <h1 class="text-center">hello world</h1>
+        <div class="p-6">
+            <h4
+                class="block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                UI/UX Review Check
+            </h4>
+            <p class="mt-3 block font-sans text-xl font-normal leading-relaxed text-gray-700 antialiased">
+                Because it's about motivating the doers. Because I'm here to follow my
+                dreams and inspire others.
+            </p>
         </div>
     </div>
-    <h1 class="text-xl">hellow</h1>
-    <h1 class="text-xl">hellow</h1>
-    <h1 class="text-xl">hellow</h1>
-    <h1 class="text-xl">hellow</h1>
+
+    <h1 class="text-2xl">helo</h1>
+    <h1 class="text-2xl">helo</h1>
+    <h1 class="text-2xl">helo</h1>
+    <h1 class="text-2xl">helo</h1>
+    <h1 class="text-2xl">helo</h1>
+
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
 </body>
 
