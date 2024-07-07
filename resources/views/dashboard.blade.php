@@ -198,9 +198,9 @@
         {{-- Featured Article --}}
         <section class="max-w-full">
             <h1 class="text-xl text-center mt-4">Konten Unggulan</h1>
-            <div class="h-[80vh] grid grid-cols-1 gap-4 lg:grid-cols-3 mt-4 mx-6">
-                <div
-                    class="relative flex max-w-[24rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mx-auto lg:mx-0">
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 mt-4 mx-6">
+                <a href="#"
+                    class="relative flex max-w-[24rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mx-auto lg:mx-0 hover:shadow-lg transition-shadow duration-300">
                     <div
                         class="relative m-0 overflow-hidden rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
                         <img src="/images/bg-hero.jpg" alt="featured image" class="antialiased" />
@@ -215,9 +215,9 @@
                             others.
                         </p>
                     </div>
-                </div>
-                <div
-                    class="relative flex max-w-[24rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mx-auto lg:mx-0">
+                </a>
+                <a href="#"
+                    class="relative flex max-w-[24rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mx-auto lg:mx-0 hover:shadow-lg transition-shadow duration-300">
                     <div
                         class="relative m-0 overflow-hidden rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
                         <img src="/images/bg-hero.jpg" alt="featured image" />
@@ -232,9 +232,9 @@
                             others.
                         </p>
                     </div>
-                </div>
-                <div
-                    class="relative flex max-w-[24rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mx-auto lg:mx-0">
+                </a>
+                <a href="#"
+                    class="relative flex max-w-[24rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mx-auto md:col-span-2 md:flex md:justify-center lg:col-span-1 lg:mx-0 hover:shadow-lg transition-shadow duration-300">
                     <div
                         class="relative m-0 overflow-hidden rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
                         <img src="/images/bg-hero.jpg" alt="featured image" />
@@ -249,9 +249,10 @@
                             others.
                         </p>
                     </div>
-                </div>
+                </a>
             </div>
         </section>
+
     </main>
 
     <h1 class="text-2xl">helo</h1>
