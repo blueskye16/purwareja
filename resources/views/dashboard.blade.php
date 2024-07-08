@@ -197,8 +197,8 @@
 
         {{-- Featured Article --}}
         <section class="max-w-full">
-            <div class="px-20 text-center mx-auto">
-                <h1 class="text-4xl font-semibold text-center border-t border-gray-200 mt-10 pt-5 px-5">Konten Unggulan
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <h1 class="text-[2em] md:text-4xl font-semibold text-center border-t border-gray-200 mt-10 py-7">Konten Unggulan
                 </h1>
             </div>
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 mt-4 mx-6">
@@ -257,15 +257,15 @@
         </section>
 
         {{-- Updated Article --}}
-        <div class="bg-white pt-24 pb-14 sm:pt-32">
+        <div class="bg-white py-14 mt-4">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                <h1 class="text-4xl border-t border-gray-200 text-center pt-10">Artikel Terbaru</h1>
+                <h1 class="text-[2em] md:text-4xl font-semibold border-t border-gray-200 text-center py-7">Artikel Terbaru</h1>
                 <div
-                    class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+                    class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:mt-6 lg:mx-0 lg:max-w-none lg:grid-cols-3">
                     <article class="flex max-w-2xl flex-col items-start justify-between bg-gray-300 rounded-lg p-5">
                         <div class="flex items-center justify-between gap-x-4 text-xs w-full">
                             <a href="#"
-                                class="relative z-10 rounded-full bg-orange-400 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+                                class="relative rounded-full bg-orange-400 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100 z-0">Marketing</a>
                             <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
                         </div>
                         <div class="group relative">
@@ -343,7 +343,7 @@
 
 
         {{-- Footer --}}
-        <footer class="p-4 bg-white md:p-8 lg:p-10 dark:bg-gray-800">
+        <footer class="mt-24 p-4 bg-white md:p-8 lg:p-10 dark:bg-gray-800">
             <div class="mx-auto max-w-screen-xl text-center">
                 <a href="#"
                     class="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white">
