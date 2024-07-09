@@ -10,13 +10,12 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <title>Dashboard</title>
-    <title>Admin</title>
+    <title>Dashboard Admin</title>
 </head>
 
 <body class="bg-gray-800">
     <div class="antialiased bg-gray-50 dark:bg-gray-900">
-        <nav
+        {{-- <nav
             class="bg-white border-b border-gray-200 px-4 py-2.5 dark:bg-gray-800 dark:border-gray-700 fixed left-0 right-0 top-0 z-50">
             <div class="flex flex-wrap justify-between items-center">
                 <div class="flex justify-start items-center">
@@ -468,7 +467,8 @@
                     </div>
                 </div>
             </div>
-        </nav>
+        </nav> --}}
+        <x-NavBar></x-NavBar>
 
         <!-- Sidebar -->
 
