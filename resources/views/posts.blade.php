@@ -33,7 +33,6 @@
                         </article>
                     @endforeach
 
-                    <!-- More posts... -->
                 </div>
             </div>
         </div>
