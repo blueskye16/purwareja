@@ -2,21 +2,23 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
     use HasFactory;
 
-    protected $with = ['category', 'author'];
-    protected $fillable = ['title', 'author', 'slug', 'body'];
+    // protected $with = ['category', 'admin'];
 
-    public function author(): BelongsTo
+    protected $fillable = ['title', 'admin', 'slug', 'body'];
+
+    public function admin(): BelongsTo
     {
-        return $this->BelongsTo(User::class);
+        return $this->BelongsTo(Admin::class);
     }
+
     public function category(): BelongsTo
     {
         return $this->BelongsTo(Category::class);

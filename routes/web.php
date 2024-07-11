@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Post;
+use App\Models\Admin;
+use App\Models\Category;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 
@@ -8,59 +11,23 @@ Route::get('/', function () {
 });
 
 Route::get('/posts', function () {
+    $posts = Post::latest()->get();
     return view('posts', [
-        'posts' => [
-            [
-                'id' => '1',
-                'title' => 'Judul 1',
-                'author' => 'kevin',
-                'slug' => 'judul-1',
-                'body' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus recusandae veritatis placeat modi dolore maxime doloribus sapiente, laborum enim officia omnis totam ipsa suscipit quibusdam, ea aut! Eaque nemo rerum cupiditate aliquam dolor dignissimos nulla delectus veritatis eveniet voluptates debitis, adipisci dolorum nihil fugiat magni excepturi dolore sequi soluta asperiores harum? In harum eos nihil voluptates, dolorum ab perspiciatis est quis ipsa ex veritatis nemo nam eius pariatur recusandae minima ipsum dignissimos facilis saepe sit quia quo. Possimus, quisquam minus tempora consequatur officia dolor architecto sed repudiandae mollitia repellendus animi quasi maxime unde dolores placeat! Maxime, culpa iure voluptate iusto corrupti exercitationem reprehenderit tempore maiores quasi voluptatibus, eligendi officiis est recusandae odit, praesentium quod ea repudiandae molestias incidunt inventore adipisci ratione sapiente minima perspiciatis? Blanditiis, asperiores dolorem exercitationem fuga ad soluta, saepe quia, dolore hic veniam itaque cupiditate enim reprehenderit. Aut blanditiis vitae illo, ducimus commodi harum aliquid neque voluptate!'
-            ],
-            [
-                'id' => '2',
-                'title' => 'Judul 2',
-                'author' => 'mira',
-                'slug' => 'judul-2',
-                'body' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus recusandae veritatis placeat modi dolore maxime doloribus sapiente, laborum enim officia omnis totam ipsa suscipit quibusdam, ea aut! Eaque nemo rerum cupiditate aliquam dolor dignissimos nulla delectus veritatis eveniet voluptates debitis, adipisci dolorum nihil fugiat magni excepturi dolore sequi soluta asperiores harum? In harum eos nihil voluptates, dolorum ab perspiciatis est quis ipsa ex veritatis nemo nam eius pariatur recusandae minima ipsum dignissimos facilis saepe sit quia quo. Possimus, quisquam minus tempora consequatur officia dolor architecto sed repudiandae mollitia repellendus animi quasi maxime unde dolores placeat! Maxime, culpa iure voluptate iusto corrupti exercitationem reprehenderit tempore maiores quasi voluptatibus, eligendi officiis est recusandae odit, praesentium quod ea repudiandae molestias incidunt inventore adipisci ratione sapiente minima perspiciatis? Blanditiis, asperiores dolorem exercitationem fuga ad soluta, saepe quia, dolore hic veniam itaque cupiditate enim reprehenderit. Aut blanditiis vitae illo, ducimus commodi harum aliquid neque voluptate!'
-            ]
-        ]
+        'title' => 'Artikel',
+        'posts' => $posts
     ]);
 });
 
-Route::get('/posts/{slug}', function ($slug) {
-    $posts = [
-        [
-            'id' => '1',
-            'title' => 'Judul 1',
-            'author' => 'kevin',
-            'slug' => 'judul-1',
-            'body' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus recusandae veritatis placeat modi dolore maxime doloribus sapiente, laborum enim officia omnis totam ipsa suscipit quibusdam, ea aut! Eaque nemo rerum cupiditate aliquam dolor dignissimos nulla delectus veritatis eveniet voluptates debitis, adipisci dolorum nihil fugiat magni excepturi dolore sequi soluta asperiores harum? In harum eos nihil voluptates, dolorum ab perspiciatis est quis ipsa ex veritatis nemo nam eius pariatur recusandae minima ipsum dignissimos facilis saepe sit quia quo. Possimus, quisquam minus tempora consequatur officia dolor architecto sed repudiandae mollitia repellendus animi quasi maxime unde dolores placeat! Maxime, culpa iure voluptate iusto corrupti exercitationem reprehenderit tempore maiores quasi voluptatibus, eligendi officiis est recusandae odit, praesentium quod ea repudiandae molestias incidunt inventore adipisci ratione sapiente minima perspiciatis? Blanditiis, asperiores dolorem exercitationem fuga ad soluta, saepe quia, dolore hic veniam itaque cupiditate enim reprehenderit. Aut blanditiis vitae illo, ducimus commodi harum aliquid neque voluptate!'
-        ],
-        [
-            'id' => '2',
-            'title' => 'Judul 2',
-            'author' => 'mira',
-            'slug' => 'judul-2',
-            'body' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus recusandae veritatis placeat modi dolore maxime doloribus sapiente, laborum enim officia omnis totam ipsa suscipit quibusdam, ea aut! Eaque nemo rerum cupiditate aliquam dolor dignissimos nulla delectus veritatis eveniet voluptates debitis, adipisci dolorum nihil fugiat magni excepturi dolore sequi soluta asperiores harum? In harum eos nihil voluptates, dolorum ab perspiciatis est quis ipsa ex veritatis nemo nam eius pariatur recusandae minima ipsum dignissimos facilis saepe sit quia quo. Possimus, quisquam minus tempora consequatur officia dolor architecto sed repudiandae mollitia repellendus animi quasi maxime unde dolores placeat! Maxime, culpa iure voluptate iusto corrupti exercitationem reprehenderit tempore maiores quasi voluptatibus, eligendi officiis est recusandae odit, praesentium quod ea repudiandae molestias incidunt inventore adipisci ratione sapiente minima perspiciatis? Blanditiis, asperiores dolorem exercitationem fuga ad soluta, saepe quia, dolore hic veniam itaque cupiditate enim reprehenderit. Aut blanditiis vitae illo, ducimus commodi harum aliquid neque voluptate!'
-        ]
-    ];
-
-    $post = Arr::first($posts, function ($post) use ($slug) {
-        return $post['slug'] == $slug;
-    });
-
-    return view('post', ['post' => $post]);
+Route::get('/post/{post:slug}', function (Post $post) {
+    return view('post', ['title' => 'Single Post', 'post' => $post]);
 });
 
-Route::get('/admin', function () {
-    return view('admin-dashboard');
+Route::get('/categories/{category:slug}', function (Category $category) {
+    return view('posts', ['title' => count($category->posts) . ' Article in' . $category->name, 'posts' => $category->posts
+    ]);
 });
 
-Route::get('/pemerintahan', function () {
-    return view('dashboard');
-});
-
-Route::get('/potensi', function () {
-    return view('dashboard');
+Route::get('/admin', function (Admin $admin) {
+    return view('posts', ['title' => count($admin->posts) . ' Article by' . $admin->name, 'posts' => $admin->posts
+    ]);
 });
