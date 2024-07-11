@@ -2,8 +2,10 @@
 
     <x-search-bar></x-search-bar>
 
+    {{ $posts->links() }}
+
     <main>
-        <div class="bg-white py-14 mt-4">
+        <div class="bg-white py-8 mt-4">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <h1 class="text-[2em] md:text-4xl font-semibold border-t border-gray-200 text-center py-7">
                     {{ $title }}</h1>
@@ -46,4 +48,7 @@
             </div>
         </div>
     </main>
+
+    {{ $posts->links() }}
+
 </x-layout>
