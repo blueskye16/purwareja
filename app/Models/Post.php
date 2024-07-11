@@ -10,9 +10,9 @@ class Post extends Model
 {
     use HasFactory;
 
-    // protected $with = ['category', 'admin'];
-
     protected $fillable = ['title', 'admin', 'slug', 'body'];
+
+    protected $with = ['category', 'admin'];
 
     public function admin(): BelongsTo
     {

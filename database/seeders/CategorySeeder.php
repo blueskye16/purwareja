@@ -14,21 +14,21 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         Category::create([
-            'name' => 'Pemerintahan',
-            'slug' => 'pemerintahan',
-            'color' => 'yellow'
+            'name' => 'Data Desa',
+            'slug' => 'data-desa',
+            'color' => 'red'
         ]);
 
         Category::create([
-            'name' => 'Penduduk',
-            'slug' => 'penduduk',
+            'name' => 'Penduduk Desa',
+            'slug' => 'penduduk-desa',
             'color' => 'blue'
         ]);
 
         Category::create([
-            'name' => 'Desa Sehat',
-            'slug' => 'desa-sehat',
-            'color' => 'green'
+            'name' => 'Desa Bugar',
+            'slug' => 'desa-bugar',
+            'color' => 'yellow'
         ]);
     }
 }

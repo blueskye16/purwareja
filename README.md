@@ -1,9 +1,12 @@
 # GASKAN
 
-- otw ngatur nav yang aktif
-- ngatur route admin
-- testing tambah db posts
-- single post
+- testing tambah db posts via admin
+- redesign single post
+- post-category-color masi error
+    - gegara yang n+1 problem kah? cek lagi
+  
+markdown
+    ctrl+k+v
 
 ## Notes
 

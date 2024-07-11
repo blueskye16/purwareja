@@ -9,7 +9,7 @@ export default {
         ,
         "./node_modules/flowbite/**/*.js",
     ],
-    darkMode: 'class',
+    darkMode: "class",
     theme: {
         extend: {
             fontFamily: {
@@ -66,5 +66,6 @@ export default {
             },
         },
     },
-    plugins: [require("flowbite/plugin")],
+    plugins: [require("flowbite/plugin"), require('flowbite-typography')],
+    safelist: ["bg-red-200", "bg-blue-200", "bg-yellow-200"],
 };

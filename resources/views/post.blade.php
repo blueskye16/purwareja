@@ -1,33 +1,21 @@
 <x-layout>
-    <main>
-        <div class="bg-white py-14 mt-4">
-            <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                <div
-                    class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:mt-6 lg:mx-0 lg:max-w-none lg:grid-cols-3">                        
-                    <article class="flex max-w-2xl flex-col items-start justify-between bg-gray-300 rounded-lg p-5">
-                        <div class="flex items-center justify-between gap-x-4 text-xs w-full">
-                            <a href="#"
-                                class="relative rounded-full bg-orange-400 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100 z-0">Marketing</a>
-                            <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
-                        </div>
-                        <div class="group relative">
-                            <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                                <a href="#">
-                                    <span class="absolute inset-0"></span>
-                                    {{ $post['title'] }}
-                                </a>
-                            </h3>
-                            <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{{ $post['body']}}</p>
-                        </div>
-                        <a href="/posts"
-                            class="mt-5 text-blue-500 hover:text-blue-700 hover:scale-110 hover:ease-linear">
-                            <p>&laquo; Kembali</p>
-                        </a>
-                    </article>
-                
-                    <!-- More posts... -->
-                </div>
-            </div>
-        </div>
-    </main>
+    <main class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
+        <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">
+            <article
+                class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+                <header class="mb-4 lg:mb-6 not-format">
+                    <a href="/posts"
+                        class="inline-block mb-3 font-medium text-sm text-blue-500 hover:underline hover:text-blue-800">&laquo;
+                        Kembali</a>
+                    <span
+                        class="relative rounded-full bg-{{ $post->category->color }}-200 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100 z-0">{{ $post->category->name }}</span>
+                    <p class="text-xs">{{ $post->created_at->format('j F Y') }}</p>
+                    <h1
+                        class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
+                        {{ $post->title }}</h1>
+                </header>
+                <p class="lead">{{ $post->body }}</p>
+                <p>Before going digital, you might benefit from scribbling down some ideas in a sketchbook. This way,
+                    you can think things through before committing to an actual design project.</p>
+                </footer>
 </x-layout>
