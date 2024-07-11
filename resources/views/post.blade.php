@@ -7,8 +7,12 @@
                     <a href="/posts"
                         class="inline-block mb-3 font-medium text-sm text-blue-500 hover:underline hover:text-blue-800">&laquo;
                         Kembali</a>
-                    <span
-                        class="relative rounded-full bg-{{ $post->category->color }}-200 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100 z-0">{{ $post->category->name }}</span>
+                    <a href="/categories/{{ $post->category->slug }}">
+                        <span
+                            class="relative rounded-full bg-{{ $post->category->color }}-200 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100 z-0">
+                            {{ $post->category->name }}
+                        </span>
+                    </a>
                     <p class="text-xs">{{ $post->created_at->format('j F Y') }}</p>
                     <h1
                         class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">

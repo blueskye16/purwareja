@@ -12,7 +12,7 @@ class Admin extends Model
 
     protected $fillable = ['name', 'email', 'password'];
 
-    public function post(): HasMany
+    public function posts(): HasMany
     {
         return $this->HasMany(Post::class);
     }
