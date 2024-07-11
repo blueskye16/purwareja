@@ -7,7 +7,7 @@
                     <a href="/posts"
                         class="inline-block mb-3 font-medium text-sm text-blue-500 hover:underline hover:text-blue-800">&laquo;
                         Kembali</a>
-                    <a href="/categories/{{ $post->category->slug }}">
+                    <a href="/posts?category={{ $post->category->slug }}">
                         <span
                             class="relative rounded-full bg-{{ $post->category->color }}-200 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100 z-0">
                             {{ $post->category->name }}
