@@ -8,7 +8,7 @@
             {{-- Featured Article --}}
             <x-FeaturedArticle></x-FeaturedArticle>
     
-            <h1>postingan</h1>
+            <h1>updated articles</h1>
     
             {{-- Pagination --}}
             <x-Pagination></x-Pagination>

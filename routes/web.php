@@ -23,3 +23,7 @@ Route::get('/posts/{post:slug}', function (Post $post) {
 Route::get('/categories/{category:slug}', function (Category $category) {
     return view('posts', ['title' => count($category->posts) . ' Article in ' . $category->name , 'posts' => $category->posts]);
 });
+
+Route::get('/admin-dashboard', function () {
+    return view('admin-dashboard');
+});
