@@ -17,6 +17,7 @@ Route::get('/posts',[PostsController::class, 'index']);
 //login
 Route::get('/admin',[LoginController::class, 'index']);
 Route::post('/admin',[LoginController::class, 'store']);
+Route::post('/admin',[LoginController::class, 'authenticate']);
 
 
 
