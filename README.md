@@ -2,8 +2,7 @@
 
 - testing tambah db posts via admin
 - redesign single post
-- post-category-color masi error
-    - gegara yang n+1 problem kah? cek lagi
+- nambahin pilihan category(dropdown) di list posts
   
 markdown
     ctrl+k+v

@@ -4,17 +4,23 @@ use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
+use App\Http\Controllers\DashboardController;
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+// Route::get('/', function () {
+//     return view('dashboard');
+// });
 
-Route::get('/posts', function () {
-    return view('posts', [
-        'title' => 'Artikel Desa Purwareja',
-        'posts' => Post::filter(request(['search', 'category']))->latest()->paginate(9)->withQueryString()
-    ]);
-});
+// Route::get('/posts', function () {
+//     return view('posts', [
+//         'title' => 'Artikel Desa Purwareja',
+//         'posts' => Post::filter(request(['search', 'category']))->latest()->paginate(9)->withQueryString()
+//     ]);
+// });
+
+Route::get('/',[DashboardController::class, 'index']);
+Route::get('/posts',[PostsController::class, 'index']);
+
 
 Route::get('/posts/{post:slug}', function (Post $post) {
     return view('post', ['title' => 'Single Post', 'post' => $post]);
