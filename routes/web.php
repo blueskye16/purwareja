@@ -4,25 +4,21 @@ use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\DashboardController;
-
-// Route::get('/', function () {
-//     return view('dashboard');
-// });
-
-// Route::get('/posts', function () {
-//     return view('posts', [
-//         'title' => 'Artikel Desa Purwareja',
-//         'posts' => Post::filter(request(['search', 'category']))->latest()->paginate(9)->withQueryString()
-//     ]);
-// });
 
 //dashboard
 Route::get('/',[DashboardController::class, 'index']);
 
 //posts
 Route::get('/posts',[PostsController::class, 'index']);
+
+//login
+Route::get('/admin',[LoginController::class, 'index']);
+Route::post('/admin',[LoginController::class, 'store']);
+
+
 
 //login
 Route::get('/admin', function(){
