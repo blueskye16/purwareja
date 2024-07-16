@@ -18,8 +18,16 @@ use App\Http\Controllers\DashboardController;
 //     ]);
 // });
 
+//dashboard
 Route::get('/',[DashboardController::class, 'index']);
+
+//posts
 Route::get('/posts',[PostsController::class, 'index']);
+
+//login
+Route::get('/admin', function(){
+    return view('login.login');
+});
 
 
 Route::get('/posts/{post:slug}', function (Post $post) {
