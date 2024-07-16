@@ -17,10 +17,11 @@ class AdminSeeder extends Seeder
         Admin::create([
             'name' => 'kevin',
             'email' => 'kevin@gmail.com',
-            'password' => Hash::make('password'),
+            'password' => bcrypt('12345'),
             
         ]);
-
+        // 'password' => Hash::make('password'),
+        
         Admin::factory(5)->create();
     }
 }

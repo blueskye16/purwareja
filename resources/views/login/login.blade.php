@@ -16,9 +16,7 @@
                 </svg>
                 <span class="sr-only">Info</span>
                 <div class="ms-3 text-sm font-medium">
-                    A simple info alert with an <a href="#"
-                        class="font-semibold underline hover:no-underline">example
-                        link</a>. Give it a click if you like.
+                    {{ session('success') }}
                 </div>
                 <button type="button"
                     class="ms-auto -mx-1.5 -my-1.5 bg-blue-50 text-blue-500 rounded-lg focus:ring-2 focus:ring-blue-400 p-1.5 hover:bg-blue-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-blue-400 dark:hover:bg-gray-700"
@@ -43,6 +41,16 @@
                     <form class="space-y-4 md:space-y-6" action="/admin" method="POST">
                         @csrf
 
+                        <div>
+                            <label for="name"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
+                            <input type="name" name="name" id="name"
+                                class="@error('name') invalid:border-red-500 @enderror  bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="nama" required value="{{ old('name') }}">
+                        </div>
+                        @error('name')
+                            <p class="text-xs text-red-500 underline">{{ $message }}</p>
+                        @enderror
                         <div>
                             <label for="email"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>

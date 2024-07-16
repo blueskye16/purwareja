@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -15,7 +16,8 @@ class LoginController extends Controller
     public function store(Request $request) 
     {
         $validatedData = $request->validate([
-            'email' => 'required|email:dns|unique:admins',
+            'name' => ['required', 'min:1'],
+            'email' => ['required', 'email', 'unique:admins'],
             'password' => ['required', 'min:5', 'max:255']
         ]);
 
@@ -26,6 +28,8 @@ class LoginController extends Controller
         // dd('regis aman');
 
         // User::create($validatedData);
+
+        Admin::create($validatedData);
 
         return redirect('/admin')->with('success', 'Login Sukses!');
     }

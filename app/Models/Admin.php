@@ -10,7 +10,9 @@ class Admin extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'email', 'password'];
+    // protected $fillable = ['name', 'email', 'password'];
+
+    protected $guarded = ['id'];
 
     public function posts(): HasMany
     {
