@@ -67,7 +67,7 @@
                     <form class="space-y-4 md:space-y-6" action="/admin" method="POST">
                         @csrf
 
-                        {{-- <div>
+                        <div>
                             <label for="name"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
                             <input type="name" name="name" id="name"
@@ -75,8 +75,8 @@
                                 placeholder="nama" required value="{{ old('name') }}">
                         </div>
                         @error('name')
-                            <p class="text-xs text-red-500 underline">{{ $message }}</p>
-                        @enderror --}}
+                        <p class="text-xs text-red-500 underline">{{ $message }}</p>
+                        @enderror
                         <div>
                             <label for="email"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>

@@ -16,6 +16,8 @@ class LoginController extends Controller
 
     public function store(Request $request)
     {
+        // $request['password'] = bcrypt($request['password']);
+
         $validatedData = $request->validate([
             'name' => ['required', 'min:1'],
             'email' => ['required', 'email', 'unique:admins'],
@@ -27,8 +29,6 @@ class LoginController extends Controller
 
         // register user baru
         // dd('regis aman');
-
-        // User::create($validatedData);
 
         Admin::create($validatedData);
 
@@ -42,25 +42,39 @@ class LoginController extends Controller
             'password' => ['required'],
         ]);
 
-        $admin = Admin::where('email', '=', $request->email)->first();
-        if ($admin && Hash::check($request->password, $admin->password)) {
-            // return "sukses";
+
+        //  && Hash::check($request->password, $credentials['password'])
+
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
+            
             return redirect()->intended('/admin-dashboard');
-        } else {
-            // return "error";
-            return back()->with('loginError', 'Login gagal');
-
         }
 
+        // dd([$credentials, Auth::attempt($credentials)]);
+        // dd(Auth::attempt($credentials));
+        // var_dump(Auth::attempt($credentials));
+        // var_dump($credentials);
+        dd(session()->all());
 
-        // if (Auth::attempt($credentials)) {
+        return back()->with('loginError', 'Login gagal');
+
+
+
+
+
+        // $credentials = Admin::where('email', '=', $request->email)->first();
+        
+        // if ($credentials && Hash::check($request->password, $credentials->password)) {
+        //     // return "sukses";
         //     $request->session()->regenerate();
+        //     // dd(Auth::attempt($credentials));
 
-        //     return redirect()->intended('dashboard');
+        //     return redirect()->intended('/admin-dashboard');
+        // } else {
+        // //     // return "error";
+        //     return back()->with('loginError', 'Login gagal');
+
         // }
-
-        // return back()->with('loginError', 'Login gagal');
     }
 }
