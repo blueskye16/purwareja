@@ -11,15 +11,14 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'admin', 'slug', 'body'];
 
-    // protected $guarded = ['id'];
+    protected $guarded = ['id'];
 
-    protected $with = ['category', 'admin'];
+    protected $with = ['category', 'user'];
 
-    public function admin(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->BelongsTo(Admin::class);
+        return $this->BelongsTo(User::class);
     }
 
     public function category(): BelongsTo

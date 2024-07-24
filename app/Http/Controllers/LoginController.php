@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -32,7 +32,7 @@ class LoginController extends Controller
         // register user baru
         // dd($validatedData);
 
-        Admin::create($validatedData);
+        User::create($validatedData);
 
         return redirect('/admin')->with('success', 'Login Sukses!');
     }
@@ -46,7 +46,7 @@ class LoginController extends Controller
 
         // dd($credentials);
 
-        if(Auth::guard('admin')->attempt($credentials)) 
+        if(Auth::attempt($credentials)) 
         {
             $request->session()->regenerate();
             return redirect()->intended('/');

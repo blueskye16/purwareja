@@ -2,8 +2,8 @@
 
 use App\Models\Post;
 use App\Models\Category;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Arr;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\DashboardController;
