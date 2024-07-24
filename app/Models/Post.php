@@ -13,6 +13,8 @@ class Post extends Model
 
     protected $fillable = ['title', 'admin', 'slug', 'body'];
 
+    // protected $guarded = ['id'];
+
     protected $with = ['category', 'admin'];
 
     public function admin(): BelongsTo

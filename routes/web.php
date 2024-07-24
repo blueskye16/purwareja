@@ -18,7 +18,7 @@ Route::get('/posts',[PostsController::class, 'index']);
 //login
 Route::get('/admin',[LoginController::class, 'index'])->middleware('guest');
 Route::post('/admin',[LoginController::class, 'store']);
-Route::post('/admin',[LoginController::class, 'authenticate']);
+// Route::post('/admin',[LoginController::class, 'authenticate']);
 
 //admin-dashboard
 Route::get('/admin-dashboard',[AdminDashboardController::class, 'index']);

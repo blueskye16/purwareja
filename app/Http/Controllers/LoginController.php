@@ -6,6 +6,7 @@ use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\RedirectResponse;
 
 class LoginController extends Controller
 {
@@ -19,62 +20,40 @@ class LoginController extends Controller
         // $request['password'] = bcrypt($request['password']);
 
         $validatedData = $request->validate([
-            'name' => ['required', 'min:1'],
-            'email' => ['required', 'email', 'unique:admins'],
+            'name' => ['required', 'max:255'],
+            'email' => ['required', 'email:dns', 'unique:admins'],
             'password' => ['required', 'min:5', 'max:255']
         ]);
 
+        // $validatedData['password'] = bcrypt($validatedData['password']);
         $validatedData['password'] = Hash::make($validatedData['password']);
 
 
         // register user baru
-        // dd('regis aman');
+        // dd($validatedData);
 
         Admin::create($validatedData);
 
         return redirect('/admin')->with('success', 'Login Sukses!');
     }
 
-    public function authenticate(Request $request)
+    public function authenticate(Request $request): RedirectResponse
     {
         $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
+            'email' => ['required','email:dns'],
+            'password' => ['required']
         ]);
 
+        // dd($credentials);
 
-        //  && Hash::check($request->password, $credentials['password'])
-
-        if (Auth::attempt($credentials)) {
+        if(Auth::guard('admin')->attempt($credentials)) 
+        {
             $request->session()->regenerate();
-            
-            return redirect()->intended('/admin-dashboard');
+            return redirect()->intended('/');
         }
 
-        // dd([$credentials, Auth::attempt($credentials)]);
-        // dd(Auth::attempt($credentials));
-        // var_dump(Auth::attempt($credentials));
-        // var_dump($credentials);
-        dd(session()->all());
-
-        return back()->with('loginError', 'Login gagal');
-
-
-
-
-
-        // $credentials = Admin::where('email', '=', $request->email)->first();
-        
-        // if ($credentials && Hash::check($request->password, $credentials->password)) {
-        //     // return "sukses";
-        //     $request->session()->regenerate();
-        //     // dd(Auth::attempt($credentials));
-
-        //     return redirect()->intended('/admin-dashboard');
-        // } else {
-        // //     // return "error";
-        //     return back()->with('loginError', 'Login gagal');
-
-        // }
+        // dd($credentials);
+        return back()->with('loginError', 'Login failed!');
     }
+
 }
