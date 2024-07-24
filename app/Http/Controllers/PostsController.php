@@ -12,7 +12,7 @@ class PostsController extends Controller
     {
         return view('posts', [
             'title' => 'Artikel Desa Purwareja',
-            'posts' => Post::filter(request(['search', 'category']))->latest()->paginate(9)->withQueryString()
+            'posts' => Post::filter(request(['search', 'category']))->latest()->paginate(12)->withQueryString()
         ]);
     }
 }

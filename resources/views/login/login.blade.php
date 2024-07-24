@@ -68,7 +68,7 @@
                         @csrf
 
                         {{-- name for regis --}}
-                        <div>
+                        {{-- <div>
                             <label for="name"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
                             <input type="name" name="name" id="name"
@@ -77,7 +77,7 @@
                         </div>
                         @error('name')
                         <p class="text-xs text-red-500 underline">{{ $message }}</p>
-                        @enderror
+                        @enderror --}}
 
                         <div>
                             <label for="email"
