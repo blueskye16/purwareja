@@ -24,12 +24,7 @@ class LoginController extends Controller
             'password' => ['required', 'min:5', 'max:255']
         ]);
 
-        // $validatedData['password'] = bcrypt($validatedData['password']);
         $validatedData['password'] = Hash::make($validatedData['password']);
-
-
-        // register user baru
-        // dd($validatedData);
 
         User::create($validatedData);
 
@@ -45,8 +40,7 @@ class LoginController extends Controller
 
         // dd($credentials);
 
-        if(Auth::attempt($credentials)) 
-        {
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('/admin-dashboard');
         }
@@ -54,7 +48,17 @@ class LoginController extends Controller
 
         return back()->with('loginError', 'Login failed!');
 
-        /* saat auth::attemp, password dari database di decrypt , jadi kalau yang di dadtabse belum ter encrypt bisa ditambahkan dulu sebelum validate di regis controller enkripsi passwordnya, contoh $request['password'] = bcrypt($request['password']); */
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/posts');
     }
 
 }
