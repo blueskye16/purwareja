@@ -58,7 +58,7 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/posts');
+        return redirect('/admin');
     }
 
 }

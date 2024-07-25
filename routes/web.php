@@ -28,7 +28,5 @@ Route::get('/admin',[LoginController::class, 'index'])->name('login')->middlewar
 Route::post('/admin',[LoginController::class, 'authenticate']);
 Route::post('/logout',[LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
-// Route::post('/logout', LogoutController::class)->name('logout')->middleware('auth');
-
 //admin-dashboard
 Route::get('/admin-dashboard',[AdminDashboardController::class, 'index'])->middleware('auth');

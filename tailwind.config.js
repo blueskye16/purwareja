@@ -7,10 +7,20 @@ export default {
         "./resources/**/*.js",
         "./resources/**/*.vue",
         "./node_modules/flowbite/**/*.js",
-        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
     ],
     darkMode: "class",
     theme: {
+        // screens: {
+        //     'mobile': {'max': '639px'},
+        //     // => @media (min-width: 640px) { ... }
+
+        //     'tablet': {'max': '767px'},
+        //     // => @media (min-width: 1024px) { ... }
+
+        //     'desktop': {'max': '1280px'},
+        //     // => @media (min-width: 1280px) { ... }
+        // },
         extend: {
             fontFamily: {
                 body: [
@@ -66,6 +76,6 @@ export default {
             },
         },
     },
-    plugins: [require("flowbite/plugin"), require('flowbite-typography')],
+    plugins: [require("flowbite/plugin"), require("flowbite-typography")],
     safelist: ["bg-red-200", "bg-blue-200", "bg-yellow-200"],
 };
