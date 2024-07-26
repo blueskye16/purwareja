@@ -53,7 +53,8 @@ $dropdownRoutes = ['admin-dashboard'];
                                 </li>
                             </ul>
                             <div class="py-1 bg-gray-300 hover:bg-black hover:text-white">
-                                <form action="{{ route('logout') }}" method="POST">
+                                <form action="/logout" method="POST">
+                                {{-- <form action="{{ route('logout') }}" method="POST"> --}}
                                     @csrf
 
                                     <button type="submit"
