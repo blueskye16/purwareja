@@ -8,6 +8,15 @@ markdown
     ctrl+k+v
 
 ## Notes
+- rapihin component, better pisahin yang home | dashboard admin
+- benerin yang passing data dari komponen. liat contohnya dari $title dashboard admin
+  - opsional --> ganti svg icon pake npm feather icon
+- benerin aside bagian class 'active'nya --> masi tabrakan sama hover, better jadiin component?
+  - [aside] pas lagi pindah nav-aside --> nav dari layoutnya ngga 'active' benerin juga
+
+*** CODE ***
+php artisan route:clear
+	bersihin cache -> pas benerin logout
 
 - di bagian routes dropdown uda jalan, tapi pastiin bagian nav gaada rute sama yang lagi jalan biar active-nya ga dobel
 
