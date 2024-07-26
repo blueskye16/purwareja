@@ -1,5 +1,5 @@
 <?php
-$dropdownRoutes = ['admin-dashboard'];
+$dropdownRoutes = ['dashboard'];
 ?>
 
 <nav class="sticky top-0 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700 z-10">
@@ -42,19 +42,18 @@ $dropdownRoutes = ['admin-dashboard'];
                         <!-- Dropdown menu -->
                         <div id="dropdownNavbar"
                             class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow md:w-44 w-[80vw] mx-6 dark:bg-gray-700 dark:divide-gray-600">
-                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                            <ul class="pt-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                                 <li>
                                     <a href="/"
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Beranda</a>
                                 </li>
                                 <li>
                                     <a href="/"
-                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat, quisquam?</a>
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Lorem ipsum</a>
                                 </li>
                             </ul>
-                            <div class="py-1 bg-gray-300 hover:bg-black hover:text-white">
-                                <form action="/logout" method="POST">
-                                {{-- <form action="{{ route('logout') }}" method="POST"> --}}
+                            <div class="py-1 hover:bg-gray-100 hover:rounded-lg dark:hover:bg-gray-600 dark:hover:text-white">
+                                <form action="{{ route('logout') }}" method="POST">
                                     @csrf
 
                                     <button type="submit"

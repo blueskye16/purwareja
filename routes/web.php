@@ -2,16 +2,14 @@
 
 use App\Models\Post;
 use App\Models\Category;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostsController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\AdminDashboardController;
-use App\Http\Controllers\LogoutController;
 
-//dashboard
-Route::get('/',[DashboardController::class, 'index']);
+//home
+route::get('/', [HomeController::class, 'index'])->name('home');
 
 //posts
 Route::get('/posts',[PostsController::class, 'index']);
@@ -29,4 +27,9 @@ Route::post('/admin',[LoginController::class, 'authenticate']);
 Route::post('/logout',[LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
 //admin-dashboard
-Route::get('/admin-dashboard',[AdminDashboardController::class, 'index'])->middleware('auth');
+// Route::get('/admin-dashboard',[AdminDashboardController::class, 'index'])->middleware('auth');
+Route::get('/dashboard', function(){
+    return view('dashboard.index', [
+        'title' => 'Admin Dashboard'
+    ]);
+})->name('dashboard');
