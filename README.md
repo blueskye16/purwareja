@@ -14,6 +14,10 @@ markdown
 - benerin aside bagian class 'active'nya --> masi tabrakan sama hover, better jadiin component?
   - [aside] pas lagi pindah nav-aside --> nav dari layoutnya ngga 'active' benerin juga
 
+Sekarang
+- benerin post individual dulu
+- klo udah lanjutin yang post individual dari dashboard admin
+
 *** CODE ***
 php artisan route:clear
 	bersihin cache -> pas benerin logout

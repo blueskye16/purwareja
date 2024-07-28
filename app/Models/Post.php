@@ -41,4 +41,9 @@ class Post extends Model
             $query->whereHas('category', fn($query) => $query->where('slug', $category))
         );
     }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
 }
