@@ -1,5 +1,5 @@
 <x-dashboard.layout>
-    <x-slot name='title'></x-slot>
-    <h1 class="">Welcome back admin {{ auth()->user()->name }}</h1>
+    <h1 class="m-2 text-2xl">Welcome back admin {{ auth()->user()->name }}</h1>
+
 
 </x-dashboard.layout>

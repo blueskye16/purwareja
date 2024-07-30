@@ -1,5 +1,4 @@
 <x-dashboard.layout>
-    <x-slot name='title'></x-slot>
 
     <div class="pt-4 pb-16 lg:pt-6 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
         <div class="w-full flex justify-center">

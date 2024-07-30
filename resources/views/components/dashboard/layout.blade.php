@@ -11,9 +11,18 @@
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
-    {{-- <script src="node_modules/feather-icons/dist/feather.js"></script> --}}
-    {{-- C:\laragon\www\purwareja\node_modules\feather-icons\dist --}}
-    <title>{{ $title }}</title>
+
+    {{-- Trix Editor --}}
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
+    
+    <style>
+        trix-toolbar [data-trix-button-group="file-tools"] {
+            display: none;
+        }
+    </style>
+    
+    <title>Dashboard Admin</title>
 </head>
 
 <body class="bg-gray-400 dark:bg-gray-900">
