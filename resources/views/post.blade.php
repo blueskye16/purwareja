@@ -1,4 +1,4 @@
-<x-layout>
+<x-home.layout>
     <div class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
         <div class="px-4 mx-auto max-w-screen-xl ">
             <article
@@ -11,7 +11,7 @@
                     <p class="text-xs mb-2">{{ $post->created_at->format('j F Y') }}</p>
                     <div class="flex justify-between items-center">
                         <a href="/posts"
-                            class="rounded-full bg-green-300 p-2 font-medium text-gray-800 z-0 text-xs hover:bg-green-600">&laquo;
+                            class="rounded-lg bg-green-400 p-2 font-medium text-gray-800 z-0 text-xs hover:bg-green-300">&laquo;
                             Kembali
                         </a>
                         <a href="/posts?category={{ $post->category->slug }}"
@@ -23,7 +23,11 @@
                     <img src="/images/bg-batik.jpg" alt="Post Image" class="h-64 min-w-full object-cover mt-3">
                 </header>
                 <p class="text-base">{{ $post->body }}</p>
+                <a href="/posts"
+                    class="rounded-lg bg-green-400 p-2 font-medium text-gray-800 z-0 text-xs hover:bg-green-300">&laquo;
+                    Kembali
+                </a>
             </article>
         </div>
     </div>
-</x-layout>
+</x-home.layout>

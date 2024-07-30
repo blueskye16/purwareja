@@ -1,6 +1,6 @@
-<x-layout>
+<x-home.layout>
 
-    <x-search-bar></x-search-bar>
+    <x-home.search-bar></x-home.search-bar>
 
     {{ $posts->links() }}
 
@@ -51,4 +51,4 @@
 
     {{ $posts->links() }}
 
-</x-layout>
+</x-home.layout>

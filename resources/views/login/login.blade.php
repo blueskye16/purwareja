@@ -1,4 +1,4 @@
-<x-layout>
+<x-home.layout>
 
     <section class="bg-gray-50 dark:bg-gray-900">
 
@@ -110,4 +110,4 @@
         </div>
     </section>
 
-</x-layout>
+</x-home.layout>
