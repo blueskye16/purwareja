@@ -13,21 +13,24 @@
                     <p class="text-xs mb-2">{{ $post->created_at->format('j F Y') }}</p>
                     <div class="flex justify-between items-center">
                         <div class="flex justify-between items-center">
-                            <a href="/posts"
-                                class="rounded-full bg-green-300 p-2 font-medium text-gray-800 z-0 text-xs hover:bg-green-600">&laquo;
-                                Kembali
+                            <a href="/dashboard/posts"
+                                class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm text-center px-2 py-2 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 h-9"><i
+                                    data-feather="arrow-left" class="mr-1 w-4 h-4 inline"></i>
+                                Back to all my post
                             </a>
-                            <a href="#"
-                                class="rounded-full bg-green-300 ml-1 p-2 font-medium text-gray-800 z-0 text-xs hover:bg-green-600">&laquo;
+                            <a href="/posts"
+                                class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm text-center px-2 py-2 me-2 mb-2 dark:focus:ring-yellow-900 h-9"><i
+                                    data-feather="edit" class="mr-1 w-4 h-4 inline"></i>
                                 Edit
                             </a>
-                            <a href="#"
-                                class="rounded-full bg-green-300 ml-1 p-2 font-medium text-gray-800 z-0 text-xs hover:bg-green-600">&laquo;
-                                Hapus
+                            <a href="/posts"
+                                class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm text-center px-2 py-2 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 h-9"><i
+                                    data-feather="delete" class="mr-1 w-4 h-4 inline"></i>
+                                Delete
                             </a>
                         </div>
                         <a href="/posts?category={{ $post->category->slug }}"
-                            class="rounded-full bg-{{ $post->category->color }}-200 p-2 font-medium text-gray-800 z-0 text-xs hover:border-gray-600 hover:border-solid hover:border-2">
+                            class="rounded-full bg-{{ $post->category->color }}-200 p-2.5 h-9 text-center font-medium text-gray-800 z-0 text-xs hover:border-gray-600 hover:border-solid hover:border-2">
                             {{-- hover:bg-{{ $post->category->color }}-600 --}}
                             {{ $post->category->name }}
                         </a>
