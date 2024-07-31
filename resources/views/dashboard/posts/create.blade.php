@@ -4,6 +4,7 @@
 
     <form class="max-w-3xl" method="POST" action="/dashboard/posts">
         @csrf
+
         <div class="mb-5">
             <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
             <input type="title" id="title" name="title"
@@ -14,7 +15,7 @@
             <label for="slug" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Slug</label>
             <input type="slug" id="slug" name="slug"
                 class="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-50"
-                placeholder="Post slug" required disabled />
+                placeholder="Post slug" required disabled/>
         </div>
         <div class="mb-5">
             <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
@@ -46,7 +47,7 @@
         });
 
         document.addEventListener('trix-file-accept', function(e) {
-            e.prefrentDefault();
+            e.preventDefault();
         });
     </script>
 
