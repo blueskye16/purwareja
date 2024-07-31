@@ -8,10 +8,9 @@ markdown
     ctrl+k+v
 
 ## Notes
-- rapihin component, better pisahin yang home | dashboard admin
 - benerin yang passing data dari komponen. liat contohnya dari $title dashboard admin
-- dashboard/post
-  - create post --> slugnya belum kekirim di data
+- bagian artikel 
+  - udah bisa passing data dari buatan CREATE admin, tapi karena pake {!!  !!} bikin datanya pas diliat dari excert jadi berantakan. need solution
 
 Sekarang
 - benerin post individual dulu
@@ -20,6 +19,8 @@ Sekarang
 *** CODE ***
 php artisan route:clear
 	bersihin cache -> pas benerin logout
+buat tau isi route resource ada apa aja
+  php artisan route:list
 
 - di bagian routes dropdown uda jalan, tapi pastiin bagian nav gaada rute sama yang lagi jalan biar active-nya ga dobel
 

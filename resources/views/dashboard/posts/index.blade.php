@@ -31,9 +31,6 @@
 
     <a href="/dashboard/posts/create" class="v-btn-primary">Create
     </a>
-    {{-- <a href="/dashboard/posts/create"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 inline-block">Create
-    </a> --}}
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -73,14 +70,17 @@
                                 <i data-feather="eye" class="">
                                 </i>
                             </a>
-                            <a href="#" class="bg-yellow-400 p-1 m-1 rounded-md text-white hover:bg-yellow-500">
+                            <a href="/dashboard/posts/{{ $post->slug }}/edit" class="bg-yellow-400 p-1 m-1 rounded-md text-white hover:bg-yellow-500">
                                 <i data-feather="edit" class="">
                                 </i>
                             </a>
-                            <a href="#" class="bg-red-500 p-1 m-1 rounded-md text-white hover:bg-red-700">
-                                <i data-feather="trash-2" class="">
-                                </i>
-                            </a>
+                            <form action="/dashboard/posts/{{ $post->slug }}" method="POST">
+                                @method('delete')
+                                @csrf
+                                <button class="bg-red-500 p-1 m-1 rounded-md text-white hover:bg-red-700" onclick="return confirm('Are you sure?')">
+                                    <i data-feather="trash-2" class=""></i>
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

@@ -22,12 +22,11 @@
                     </div>
                     <img src="/images/bg-batik.jpg" alt="Post Image" class="h-64 min-w-full object-cover mt-3">
                 </header>
-                <p class="text-base">{{ $post->body }}</p>
-                <a href="/posts"
-                    class="rounded-lg bg-green-400 p-2 font-medium text-gray-800 z-0 text-xs hover:bg-green-300">&laquo;
-                    Kembali
-                </a>
+                <p class="text-base">{!! $post->body !!}</p>
+                {{-- <p class="text-base">{{ $post->body }}</p> --}}
             </article>
         </div>
     </div>
+
+    
 </x-home.layout>
