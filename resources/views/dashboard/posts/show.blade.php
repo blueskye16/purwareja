@@ -36,7 +36,8 @@
                     </div>
                     <img src="/images/bg-batik.jpg" alt="Post Image" class="h-64 min-w-full object-cover mt-3">
                 </header>
-                <p class="text-base">{{ $post->body }}</p>
+                <p class="text-base">{!! $post->body !!}</p>
+                {{-- <p class="text-base">{{ $post->body }}</p> --}}
             </article>
         </div>
     </div>
