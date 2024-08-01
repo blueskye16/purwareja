@@ -52,4 +52,6 @@
 
     {{ $posts->links() }}
 
+    <x-home.footer></x-home.footer>
+
 </x-home.layout>
