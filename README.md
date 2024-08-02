@@ -9,8 +9,9 @@ markdown
 
 ## Notes
 - benerin yang passing data dari komponen. liat contohnya dari $title dashboard admin
-- bagian artikel 
-  - udah bisa passing data dari buatan CREATE admin, tapi karena pake {!!  !!} bikin datanya pas diliat dari excert jadi berantakan. need solution
+- [bagian artikel]
+- warna text body nya terlalu abu-abu, coba apply style class tapi gaada efek
+  - ini baru nambahin satu gambar aja, harus bisa tambahin beberapa gambar di dalem body --> fungsi bodynya masi terbatas
 
 Sekarang
 - benerin post individual dulu

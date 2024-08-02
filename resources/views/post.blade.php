@@ -20,7 +20,13 @@
                             {{ $post->category->name }}
                         </a>
                     </div>
-                    <img src="/images/bg-batik.jpg" alt="Post Image" class="h-64 min-w-full object-cover mt-3">
+                    {{-- <img src="/images/bg-batik.jpg" alt="Post Image" class="h-64 min-w-full object-cover mt-3"> --}}
+                    @if ($post->image)
+                        <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}"
+                            class="h-64 min-w-full object-cover mt-3">
+                        {{-- @else --}}
+                        {{-- <img src="/images/bg-batik.jpg" alt="Post Image" class="h-64 min-w-full object-cover mt-3"> --}}
+                    @endif
                 </header>
                 <p class="text-base">{!! $post->body !!}</p>
                 {{-- <p class="text-base">{{ $post->body }}</p> --}}
@@ -28,5 +34,5 @@
         </div>
     </div>
 
-    
+
 </x-home.layout>

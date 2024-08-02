@@ -46,6 +46,13 @@ class DashboardPostController extends Controller
             'body' => ['required']
         ]);
 
+        $validatedData['image'] = $request->file('image')->store('post-images');
+
+        // from WPU
+        // if($request->file('image')) {
+        //     $validatedData['image'] = $request->file('image')->store('post-images');
+        // }
+
         $validatedData['user_id'] = auth()->user()->id;
         // $validatedData['body'] = strip_tags($request->body);
 
