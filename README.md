@@ -1,8 +1,14 @@
 # GASKAN
 
-- testing tambah db posts via admin
-- redesign single post
-- nambahin pilihan category(dropdown) di list posts
+## home
+- milih konten pilihan --> admin
+
+## artikel
+- redesign card artikel
+
+## Dashboard
+- fitur buat tambah admin via dashboard --> kelola
+- ngeganti badge pake 'toast' dari flowbite, lebih bagus notifnya
   
 markdown
     ctrl+k+v
@@ -26,6 +32,12 @@ php artisan migrate:rollback
   undo field / column table yang baru dibikin --> prakteknya
 
 - di bagian routes dropdown uda jalan, tapi pastiin bagian nav gaada rute sama yang lagi jalan biar active-nya ga dobel
+
+### working with blackbox
+
+## view post-category
+- bikin input color pallete
+- i'm working with laravel and tailwind project. i intend to make some input that give user ability to chose color from some pallete, then it will pass on to the web system. do you have any advice how i make that?
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 

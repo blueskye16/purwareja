@@ -88,6 +88,7 @@
         const title = document.querySelector('#title');
         const slug = document.querySelector('#slug');
 
+        // automate slug
         title.addEventListener('change', function() {
             fetch('/dashboard/posts/checkSlug?title=' + title.value)
                 .then(response => response.json())

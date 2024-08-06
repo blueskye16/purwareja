@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
+use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -18,7 +19,6 @@ class DashboardPostController extends Controller
         return view('dashboard.posts.index', [
             'posts' => Post::where('user_id', auth()->user()->id)->get(),
         ]);
-
     }
 
     /**
