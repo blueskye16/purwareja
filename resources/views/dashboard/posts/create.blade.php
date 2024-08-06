@@ -56,11 +56,12 @@
             {{-- image --}}
             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="image">Post
                 image</label>
+            <img class="img-preview h-auto max-w-md rounded-lg mb-3">
             <input
                 class="@error('image')
                     block w-full text-sm text-red-700 border border-red-500 rounded-lg cursor-pointer bg-red-50 dark:text-red-500 focus:outline-none dark:bg-red-700 dark:border-red-600 dark:placeholder-red-400
                 @enderror block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                aria-describedby="file_input_help" id="image" type="file" name="image">
+                aria-describedby="file_input_help" id="image" type="file" name="image" onchange="previewImage()">
             <p class="@error('image')
                 text-xs text-red-700 dark:text-red-300
             @enderror text-xs text-gray-800 dark:text-gray-300"
@@ -96,6 +97,20 @@
         document.addEventListener('trix-file-accept', function(e) {
             e.preventDefault();
         });
+
+        function previewImage() {
+            const image = document.querySelector('#image');
+            const imgPreview = document.querySelector('.img-preview');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
     </script>
 
 </x-dashboard.layout>

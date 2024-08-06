@@ -22,6 +22,8 @@ php artisan route:clear
 	bersihin cache -> pas benerin logout
 buat tau isi route resource ada apa aja
   php artisan route:list
+php artisan migrate:rollback
+  undo field / column table yang baru dibikin --> prakteknya
 
 - di bagian routes dropdown uda jalan, tapi pastiin bagian nav gaada rute sama yang lagi jalan biar active-nya ga dobel
 
