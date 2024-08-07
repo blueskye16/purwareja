@@ -64,6 +64,11 @@ export default {
                     900: "#1e3a8a",
                     950: "#172554",
                 },
+                colors: {
+                    'magenta': '#ff00ff',
+                    'cyan': '#00ffff',
+                    'yellow': '#ffff00',
+                },
             },
         },
     },
@@ -71,12 +76,5 @@ export default {
         require("flowbite/plugin"),
         require("flowbite-typography"),
     ],
-    safelist: [
-        "bg-red-200",
-        "bg-blue-200",
-        "bg-yellow-200",
-        "bg-red-600",
-        "bg-blue-600",
-        "bg-yellow-600",
-    ],
+    safelist: [],
 };

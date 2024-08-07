@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class AdminCategoryController extends Controller
@@ -14,14 +14,6 @@ class AdminCategoryController extends Controller
      */
     public function index()
     {
-        // if(auth()->guest()) {
-        //     abort(403);
-        // }
-
-        // if(auth()->user()->gmail !== 'kevin@gmail.com') {
-        //     abort(403);
-        // }
-
         // if(!auth()->check() || auth()->user()->gmail !== 'kevin@gmail.com') {
         //     abort(403);
         // }
@@ -36,7 +28,7 @@ class AdminCategoryController extends Controller
      */
     public function create()
     {
-        return view('dashboard.categories.create');
+    
     }
 
     /**
@@ -44,13 +36,21 @@ class AdminCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        // dd($request);
+        $validatedData = $request->validate([
+            'name' => ['required', 'max:255'],
+            'slug' => ['required', 'unique:categories']
+        ]);
+
+        Category::create($validatedData);
+
+        return redirect('/dashboard/categories')->with('success', 'New category has been added!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(category $category)
+    public function show(Category $category)
     {
         //
     }
@@ -58,7 +58,7 @@ class AdminCategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(category $category)
+    public function edit(Category $category)
     {
         //
     }
@@ -66,7 +66,7 @@ class AdminCategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, category $category)
+    public function update(Request $request, Category $category)
     {
         //
     }
@@ -74,14 +74,15 @@ class AdminCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(category $category)
+    public function destroy(Category $category)
     {
-        //
+        Category::destroy($category->id);
+        return redirect('/dashboard/categories')->with('success', 'Category has been deleted!');
     }
 
     public function checkSlug(Request $request)
     {
-        $slug = SlugService::createSlug(Category::class, 'slug', $request->categoryName);
+        $slug = SlugService::createSlug(Category::class, 'slug', $request->name);
         return response()->json(['slug' => $slug]);
     }
 }

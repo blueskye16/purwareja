@@ -19,10 +19,11 @@ class Category extends Model
         return $this->HasMany(Post::class);
     }
 
-    // public function getRouteKeyName(): string
-    // {
-    //     return 'slug';
-    // }
+    // buat dapetin nama route di urlnya --> passing buat dipake controller destroy
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
 
     public function sluggable(): array
     {

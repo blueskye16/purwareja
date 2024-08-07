@@ -8,10 +8,14 @@
 
 ## Dashboard
 - fitur buat tambah admin via dashboard --> kelola
+- fitur tambah kategori
+  - butuh lebih mikir, pake fungsi pilih warna buat kategori?
+    - kalo gitu perlu dikasih validasi klo ada kategori yg warnanya udah dipake
+- ** di bagian index create kategori jadiin input yg notif aja -> nama => slugnya otomatis nambah ke view
 - ngeganti badge pake 'toast' dari flowbite, lebih bagus notifnya
   
-markdown
-    ctrl+k+v
+categories->color
+
 
 ## Notes
 - benerin yang passing data dari komponen. liat contohnya dari $title dashboard admin

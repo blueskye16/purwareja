@@ -16,7 +16,7 @@
                         <article class="flex max-w-2xl flex-col items-start justify-between bg-gray-300 rounded-lg p-5">
                             <div class="flex items-center justify-between gap-x-4 text-xs w-full">
                                 <a href="/posts?category={{ $post->category->slug }}"
-                                    class="relative rounded-full bg-{{ $post->category->color }}-200 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100 z-0">{{ $post->category->name }}</a>
+                                    class="relative rounded-full bg-yellow-200 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100 z-0">{{ $post->category->name }}</a>
                                 <time datetime="2020-03-16"
                                     class="text-gray-500">{{ $post->created_at->diffForHumans() }}</time>
                             </div>
