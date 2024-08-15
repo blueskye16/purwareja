@@ -4,9 +4,10 @@ use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Home\PostsController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Dashboard\AdminUsersController;
 use App\Http\Controllers\Dashboard\AdminCategoryController;
 use App\Http\Controllers\Dashboard\DashboardPostController;
 
@@ -38,17 +39,20 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->midd
 //     });
 // });
 
-//admin-dashboard
+//dashboard
 Route::get('/dashboard', function () {
     return view('dashboard.index', [
         'title' => 'Admin Dashboard'
     ]);
 })->name('dashboard')->middleware('auth');
 
-//admin post
+//dashboard post
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
 
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
+
+//admin users
+Route::resource('/dashboard/users', AdminUsersController::class)->except('show')->middleware('admin');
 
 // category
 Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');

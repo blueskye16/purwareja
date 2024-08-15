@@ -55,8 +55,11 @@ class DashboardPostController extends Controller
         //     $validatedData['image'] = $request->file('image')->store('post-images');
         // }
 
-        $validatedData['user_id'] = auth()->user()->id;
-        // $validatedData['body'] = strip_tags($request->body);
+        // this from wpu -> gatau penting apa kaga
+        // $validatedData['user_id'] = auth()->user()->id;
+
+        // buat ngilangin strip htmlnya
+        // $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
 
         Post::create($validatedData);
 
@@ -109,7 +112,7 @@ class DashboardPostController extends Controller
             $validatedData['image'] = $request->file('image')->store('post-images');
         }
 
-        $validatedData['user_id'] = auth()->user()->id;
+        // $validatedData['user_id'] = auth()->user()->id;
 
         Post::where('id', $post->id)
             ->update($validatedData);
