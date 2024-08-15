@@ -1,5 +1,8 @@
 # GASKAN
 
+bagian app.js yang error di consolenya gatau lagi kenapa
+  udh di delete terus re-build masih sama aja muncul error di inspectnya
+
 ## home
 - milih konten pilihan --> admin
 

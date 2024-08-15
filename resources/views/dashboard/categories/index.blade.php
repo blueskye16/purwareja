@@ -68,26 +68,20 @@
                         <td class="py-4 flex justify-center items-center">
                             <a href="/dashboard/categories/{{ $category->slug }}"
                                 class="bg-blue-500 p-1 m-1 rounded-md text-white hover:bg-blue-700">
-                                <i data-feather="eye" class="">
+                                <i data-feather="eye">
                                 </i>
                             </a>
-                            {{--  btn --}}
-                            {{-- <button data-modal-target="crud-modal" data-modal-toggle="crud-modal"
-                            class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                            type="button">
-                            Create category
-                        </button> --}}
-                            <a data-modal-target="edit-modal" data-modal-toggle="edit-modal"
-                                class="bg-yellow-400 p-1 m-1 rounded-md text-white hover:bg-yellow-500 cursor-pointer">
-                                <i data-feather="edit" class="">
+                            <a href="/dashboard/categories/{{ $category->slug }}/edit" class="bg-yellow-400 p-1 m-1 rounded-md text-white hover:bg-yellow-500 cursor-pointer">
+                                <i data-feather="edit">
                                 </i>
                             </a>
+                            {{-- data-modal-target="edit-modal" data-modal-toggle="edit-modal" --}}
                             <form action="/dashboard/categories/{{ $category->slug }}" method="POST">
                                 @method('delete')
                                 @csrf
                                 <button class="bg-red-500 p-1 m-1 rounded-md text-white hover:bg-red-700"
                                     onclick="return confirm('Are you sure?')">
-                                    <i data-feather="trash-2" class=""></i>
+                                    <i data-feather="trash-2"></i>
                                 </button>
                             </form>
                         </td>
@@ -100,9 +94,9 @@
     <!-- Main modal -->
     <div id="crud-modal" tabindex="-1" aria-hidden="true"
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <div class="relative p-4 w-full max-w-md max-h-full" id="create-modal" hidden>
+        <div class="relative p-4 w-full max-w-md max-h-full">
             <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700" id="create-modal">
                 <!-- Modal header -->
                 <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
@@ -135,10 +129,11 @@
                         <div class="col-span-2">
                             <label for="create-slug"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Slug</label>
-                            <input type="text" name="slug" id="create-slug" hidden
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            <input type="text" name="slug" id="create-slug"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 disabled:opacity-40"
                                 placeholder="Category slug" required>
                         </div>
+                        {{-- slugnya mau dibikin hidden / disabled tapi selalu muncul uncaught / error lainnya --}}
                     </div>
                     <button type="submit" onclick="submitForm()"
                         class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -156,9 +151,9 @@
     </div>
 
     <!-- Edit modal -->
-    <div id="crud-modal" tabindex="-1" aria-hidden="true"
+    {{-- <div id="crud-modal" tabindex="-1" aria-hidden="true"
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <div class="relative p-4 w-full max-w-md max-h-full" id="edit-modal" hidden>
+        <div class="relative p-4 w-full max-w-md max-h-full" id="edit-modal">
             <!-- Edit Modal content -->
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <!-- Edit Modal header -->
@@ -212,56 +207,17 @@
                 </form>
             </div>
         </div>
-    </div>
-
-    {{-- <script>
-        const name = document.querySelector('#name')
-        const slug = document.querySelector('#slug');
-
-        // automate slug
-        name.addEventListener('change', function() {
-            fetch('/dashboard/categories/checkSlug?name=' + name.value)
-                .then(response => response.json())
-                .then(data => slug.value = data.slug)
-        });
-    </script> --}}
+    </div> --}}
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const createNameInput = document.querySelector('#create-name');
-            const createSlugInput = document.querySelector('#create-slug');
+        const createNameInput = document.querySelector('#create-name');
+        const createSlugInput = document.querySelector('#create-slug');
 
-            const editNameInput = document.querySelector('#edit-name');
-            const editSlugInput = document.querySelector('#edit-slug');
-
-            // Function to handle slug automation for create form
-            function automateCreateSlug() {
-                createNameInput.addEventListener('input', function() {
-                    fetch('/dashboard/categories/checkSlug?name=' + createNameInput.value)
-                        .then(response => response.json())
-                        .then(data => createSlugInput.value = data.slug)
-                        .catch(error => console.error('Error:', error));
-                });
-            }
-
-            // Function to handle slug automation for edit form
-            function automateEditSlug() {
-                editNameInput.addEventListener('input', function() {
-                    fetch('/dashboard/categories/checkSlug?name=' + editNameInput.value)
-                        .then(response => response.json())
-                        .then(data => editSlugInput.value = data.slug)
-                        .catch(error => console.error('Error:', error));
-                });
-            }
-
-            // Check which modal is open and set up the respective slug automation
-            if (!document.querySelector('#create-modal').classList.contains('hidden')) {
-                automateCreateSlug();
-            }
-
-            if (!document.querySelector('#edit-modal').classList.contains('hidden')) {
-                automateEditSlug();
-            }
+        createNameInput.addEventListener('change', function() {
+            fetch('/dashboard/categories/checkSlug?name=' + createNameInput.value)
+                .then(response => response.json())
+                .then(data => createSlugInput.value = data.slug)
+                .catch(error => console.error('Error:', error));
         });
     </script>
 

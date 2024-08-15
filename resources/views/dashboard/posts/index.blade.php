@@ -29,7 +29,7 @@
         </div>
     @endif
 
-    <a href="/dashboard/posts/create" class="v-btn-primary">Create post
+    <a href="/dashboard/posts/create" class="_btn">Create post
     </a>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -67,18 +67,18 @@
                         <td class="px-6 py-4 flex">
                             <a href="/dashboard/posts/{{ $post->slug }}"
                                 class="bg-blue-500 p-1 m-1 rounded-md text-white hover:bg-blue-700">
-                                <i data-feather="eye" class="">
+                                <i data-feather="eye">
                                 </i>
                             </a>
                             <a href="/dashboard/posts/{{ $post->slug }}/edit" class="bg-yellow-400 p-1 m-1 rounded-md text-white hover:bg-yellow-500">
-                                <i data-feather="edit" class="">
+                                <i data-feather="edit">
                                 </i>
                             </a>
                             <form action="/dashboard/posts/{{ $post->slug }}" method="POST">
                                 @method('delete')
                                 @csrf
                                 <button class="bg-red-500 p-1 m-1 rounded-md text-white hover:bg-red-700" onclick="return confirm('Are you sure?')">
-                                    <i data-feather="trash-2" class=""></i>
+                                    <i data-feather="trash-2"></i>
                                 </button>
                             </form>
                         </td>

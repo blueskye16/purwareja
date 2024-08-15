@@ -11,7 +11,7 @@ use App\Http\Controllers\Dashboard\AdminUsersController;
 use App\Http\Controllers\Dashboard\AdminCategoryController;
 use App\Http\Controllers\Dashboard\DashboardPostController;
 
-//home
+//HOME
 route::get('/', [HomeController::class, 'index'])->name('home');
 
 //posts
@@ -30,16 +30,7 @@ Route::get('/admin', [LoginController::class, 'index'])->name('login')->middlewa
 Route::post('/admin', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
-
-// Route::group(['namespace' => 'Dashboard'], function() {
-//     Route::get('/dashboard', function() {
-//         return view('dashboard.index', [
-//             'title' => 'Admin Dashboard'
-//         ]);
-//     });
-// });
-
-//dashboard
+//DASHBOARD
 Route::get('/dashboard', function () {
     return view('dashboard.index', [
         'title' => 'Admin Dashboard'
@@ -47,14 +38,12 @@ Route::get('/dashboard', function () {
 })->name('dashboard')->middleware('auth');
 
 //dashboard post
-Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
-
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
+Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
 
 //admin users
 Route::resource('/dashboard/users', AdminUsersController::class)->except('show')->middleware('admin');
 
 // category
 Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
-
 Route::get('/dashboard/categories/checkSlug', [AdminCategoryController::class, 'checkSlug'])->middleware('admin');

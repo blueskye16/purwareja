@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
+    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
 
     {{-- Trix Editor --}}
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
@@ -35,8 +35,9 @@
             {{ $slot }} 
         </main>
     </div>
-    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+    {{-- <script src="../node_modules/flowbite/dist/flowbite.min.js"></script> --}}
     {{-- <script src="../path/to/flowbite/dist/flowbite.min.js"></script> --}}
+    <script src="{{ asset('js/flowbite.min.js') }}"></script>
 </body>
 
 </html>
