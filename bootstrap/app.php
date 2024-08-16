@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Middleware\role;
+use App\Http\Middleware\isAdmin;
 use Illuminate\Foundation\Application;
+use Illuminate\Foundation\Http\Kernel;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
-use App\Http\Middleware\isAdmin;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -16,6 +18,10 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'admin' => isAdmin::class
         ]);
+        // $middleware->alias([
+        //     'admin' => role::class
+        // ]);
+        // $middleware->global([isAdmin::class]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

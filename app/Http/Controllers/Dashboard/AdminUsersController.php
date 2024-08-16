@@ -20,14 +20,6 @@ class AdminUsersController extends Controller
             'users' => $users,
         ]);
 
-        // $hashids = new Hashids(env('APP_KEY'), 10);
-        // $users = User::all();
-        // foreach ($users as $user) {
-        //     $user->decoded_password = $hashids->decode($user->password);
-        // }
-        // return view('dashboard.users.index', [
-        //     'users' => $users
-        // ]);
     }
 
     /**
@@ -43,13 +35,13 @@ class AdminUsersController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        // dd($request);
         $validatedData = $request->validate([
             'name' => ['required', 'max:255'],
             'email' => ['required', 'email', 'unique:users'],
             'password' => ['required'],
-            'role' => ['required']
-        ]);
+            'is_admin' => ['required']
+        ]);   
 
         User::create($validatedData);
 
