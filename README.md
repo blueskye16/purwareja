@@ -4,6 +4,7 @@
   udh di delete terus re-build masih sama aja muncul error di inspectnya
 - install penutup tag html --> ngeselin jir
 - benerin edit password tricky bet anjir
+- cari cara biar pas ada elemen dropdown aside ada yg dibuka, dropdownnya juga tetep kebuka (ga nutup)
 
 
 ## home
