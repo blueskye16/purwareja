@@ -45,5 +45,7 @@ Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'check
 Route::resource('/dashboard/users', AdminUsersController::class)->except('show')->middleware('admin');
 
 // category
-Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
-Route::get('/dashboard/categories/checkSlug', [AdminCategoryController::class, 'checkSlug'])->middleware('admin');
+Route::resource('/dashboard/manage-posts/categories', AdminCategoryController::class)->except('show')->middleware('admin');
+Route::get('/dashboard/manage-posts/categories/checkSlug', [AdminCategoryController::class, 'checkSlug'])->middleware('admin');
+// Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
+// Route::get('/dashboard/categories/checkSlug', [AdminCategoryController::class, 'checkSlug'])->middleware('admin');

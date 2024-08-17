@@ -5,6 +5,7 @@
 - install penutup tag html --> ngeselin jir
 - benerin edit password tricky bet anjir
 - cari cara biar pas ada elemen dropdown aside ada yg dibuka, dropdownnya juga tetep kebuka (ga nutup)
+  - fitur (eye) di categories --> nunjukin ke postingan mana aja dgn kategori yg sesuai + bisa lgsg edit postnya
 
 
 ## home

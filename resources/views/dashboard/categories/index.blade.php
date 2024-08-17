@@ -66,17 +66,17 @@
                             {{ $category->name }}
                         </th>
                         <td class="py-4 flex justify-center items-center">
-                            <a href="/dashboard/categories/{{ $category->slug }}"
+                            <a href="/dashboard/manage-posts/categories/{{ $category->slug }}"
                                 class="bg-blue-500 p-1 m-1 rounded-md text-white hover:bg-blue-700">
                                 <i data-feather="eye">
                                 </i>
                             </a>
-                            <a href="/dashboard/categories/{{ $category->slug }}/edit" class="bg-yellow-400 p-1 m-1 rounded-md text-white hover:bg-yellow-500 cursor-pointer">
+                            <a href="/dashboard/manage-posts/categories/{{ $category->slug }}/edit" class="bg-yellow-400 p-1 m-1 rounded-md text-white hover:bg-yellow-500 cursor-pointer">
                                 <i data-feather="edit">
                                 </i>
                             </a>
                             {{-- data-modal-target="edit-modal" data-modal-toggle="edit-modal" --}}
-                            <form action="/dashboard/categories/{{ $category->slug }}" method="POST">
+                            <form action="/dashboard/manage-posts/categories/{{ $category->slug }}" method="POST">
                                 @method('delete')
                                 @csrf
                                 <button class="bg-red-500 p-1 m-1 rounded-md text-white hover:bg-red-700"
@@ -114,7 +114,7 @@
                     </button>
                 </div>
                 <!-- Modal body -->
-                <form class="p-4 md:p-5" method="POST" action="/dashboard/categories">
+                <form class="p-4 md:p-5" method="POST" action="/dashboard/manage-posts/categories">
                     @csrf
 
                     <div class="grid gap-4 mb-4 grid-cols-2">
@@ -214,7 +214,7 @@
         const createSlugInput = document.querySelector('#create-slug');
 
         createNameInput.addEventListener('change', function() {
-            fetch('/dashboard/categories/checkSlug?name=' + createNameInput.value)
+            fetch('/dashboard/manage-posts/categories/checkSlug?name=' + createNameInput.value)
                 .then(response => response.json())
                 .then(data => createSlugInput.value = data.slug)
                 .catch(error => console.error('Error:', error));

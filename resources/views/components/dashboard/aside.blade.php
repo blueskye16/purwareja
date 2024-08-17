@@ -111,12 +111,19 @@
             <h6 class="flex justify-center px-3 mt-4 mb-1 border-t border-solid border-gray-200 dark:border-gray-700">
                 <span class="pt-2">Adminstrator</span>
             </h6>
-            <ul class="">
+            <ul>
                 <li>
                     <a href="/dashboard/users"
                         class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ Request::is('dashboard/users*') ? 'bg-blue-400' : '' }}">
                         <i data-feather="users"></i>
-                        <span class="ml-3">Manage Users</span>
+                        <span class="ml-3">Manage Admins</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard/navigation"
+                        class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ Request::is('dashboard/navigation*') ? 'bg-blue-400' : '' }}">
+                        <i data-feather="navigation-2"></i>
+                        <span class="ml-3">Manage Navigation</span>
                     </a>
                 </li>
                 {{-- categories before dropdown --}}
@@ -130,7 +137,7 @@
                 {{-- dropdown --}}
                 <li>
                     <button type="button"
-                        class="flex items-center p-2 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                        class="flex items-center p-2 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 group dark:text-white dark:hover:bg-gray-700 {{ Request::is('dashboard/manage-posts*') ? 'bg-blue-400' : 'hover:bg-gray-100' }}"
                         aria-controls="dropdown-pages" data-collapse-toggle="dropdown-pages">
                         <svg aria-hidden="true"
                             class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
@@ -149,13 +156,13 @@
                     </button>
                     <ul id="dropdown-pages" class="hidden py-2 space-y-2">
                         <li>
-                            <a href="/dashboard/featured"
-                                class="flex items-center p-2 ml-11 text-base font-medium text-gray-900 rounded-lg transition duration-75 group dark:text-white dark:hover:bg-gray-700 {{ Request::is('dashboard/categories*') ? 'bg-blue-400 hover:bg-blue-600' : 'hover:bg-gray-200' }}"><i
+                            <a href="/dashboard/manage-posts/featured"
+                                class="flex items-center p-2 ml-11 text-base font-medium text-gray-900 rounded-lg transition duration-75 group dark:text-white dark:hover:bg-gray-700 {{ Request::is('dashboard/manage-posts/featured*') ? 'bg-blue-400 hover:bg-blue-600' : 'hover:bg-gray-200' }}"><i
                                     data-feather="award" class="mr-2"></i>Featured Post</a>
                         </li>
                         <li>
-                            <a href="/dashboard/categories"
-                                class="flex items-center p-2 ml-11 text-base font-medium text-gray-900 rounded-lg transition duration-75 group dark:text-white dark:hover:bg-gray-700 {{ Request::is('dashboard/categories*') ? 'bg-blue-400 hover:bg-blue-600' : 'hover:bg-gray-200' }}"><i
+                            <a href="/dashboard/manage-posts/categories"
+                                class="flex items-center p-2 ml-11 text-base font-medium text-gray-900 rounded-lg transition duration-75 group dark:text-white dark:hover:bg-gray-700 {{ Request::is('dashboard/manage-posts/categories*') ? 'bg-blue-400 hover:bg-blue-600' : 'hover:bg-gray-200' }}"><i
                                     data-feather="folder" class="mr-2"></i>Post Categories</a>
                         </li>
                     </ul>
