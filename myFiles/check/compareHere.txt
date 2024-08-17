@@ -1,0 +1,13 @@
+<div>
+    <label for="password"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+    <div class="relative">
+        <input type="password" name="password" id="password" placeholder="•••••" required
+            class="@error('password') invalid:border-red-500 @enderror bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <button type="button" class="absolute right-3 top-3"
+            onclick="window.mixin.togglePasswordVisibility()">
+            {{-- onclick="togglePasswordVisibility()"> --}}
+            <i data-feather="eye-off" id="eye-icon"></i>
+        </button>
+    </div>
+</div>

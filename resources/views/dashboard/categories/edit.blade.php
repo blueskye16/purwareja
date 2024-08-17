@@ -25,14 +25,14 @@
     </form>
 
     <script>
-      const createNameInput = document.querySelector('#create-name');
-      const createSlugInput = document.querySelector('#create-slug');
+        const createNameInput = document.querySelector('#create-name');
+        const createSlugInput = document.querySelector('#create-slug');
 
-      createNameInput.addEventListener('change', function() {
-          fetch('/dashboard/categories/checkSlug?name=' + createNameInput.value)
-              .then(response => response.json())
-              .then(data => createSlugInput.value = data.slug)
-              .catch(error => console.error('Error:', error));
-      });
-  </script>
+        createNameInput.addEventListener('change', function() {
+            fetch('/dashboard/categories/checkSlug?name=' + createNameInput.value)
+                .then(response => response.json())
+                .then(data => createSlugInput.value = data.slug)
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
 </x-dashboard.layout>

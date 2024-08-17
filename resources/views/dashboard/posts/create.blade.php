@@ -10,7 +10,7 @@
                 <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
                 <input type="text" id="title" name="title" autofocus value="{{ old('title') }}"
                     class="@error('title')
-                        _error-input
+                        bg-red-50 border border-red-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-red-700 dark:border-red-600 dark:placeholder-red-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500
                     @enderror _primary-input"
                     placeholder="Post title">
                 @error('title')

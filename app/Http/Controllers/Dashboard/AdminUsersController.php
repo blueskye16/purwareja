@@ -40,8 +40,13 @@ class AdminUsersController extends Controller
             'name' => ['required', 'max:255'],
             'email' => ['required', 'email', 'unique:users'],
             'password' => ['required'],
+            'retype-password' => ['required'],
             'is_admin' => ['required']
-        ]);   
+        ]);
+
+        if ($validatedData['retype-password'] !== $validatedData['password']) {
+            return redirect()->back()->withErrors(['retype-password' => 'Passwords do not match!']);
+        }
 
         User::create($validatedData);
 
@@ -61,7 +66,11 @@ class AdminUsersController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        $isAdminPreviousSelection = auth()->user()->is_admin;
+        return view('dashboard.users.edit', [
+            'user' => $user,
+            'selectedRole' => $isAdminPreviousSelection
+        ]);
     }
 
     /**
@@ -69,7 +78,22 @@ class AdminUsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        dd($request);
+        $rules = [
+            'name' => ['required', 'max:255'],
+            'email' => ['required', 'email', 'unique:users'],
+            'password' => ['min:5', 'max:255'],
+            // 'retype-password' => ['same:password'],
+            'is_admin' => ['required', 'in:0,1']
+        ];
+
+        $validatedData = $request->validate($rules);
+        // $validatedData['user_id'] = auth()->user()->id;
+
+
+        User::where('id', $user->id)->update($validatedData);
+
+        return redirect('/dashboard/users')->with('success', 'Admin has been updated!');
     }
 
     /**
@@ -80,4 +104,5 @@ class AdminUsersController extends Controller
         User::destroy($user->id);
         return redirect('dashboard/users')->with('success', 'Admin has been deleted!');
     }
+
 }
