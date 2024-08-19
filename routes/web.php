@@ -9,6 +9,7 @@ use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Home\PostsController;
 use App\Http\Controllers\Dashboard\AdminUsersController;
 use App\Http\Controllers\Dashboard\AdminCategoryController;
+use App\Http\Controllers\Dashboard\AdminFeaturedPostsController;
 use App\Http\Controllers\Dashboard\DashboardPostController;
 
 //HOME
@@ -37,9 +38,10 @@ Route::get('/dashboard', function () {
     ]);
 })->name('dashboard')->middleware('auth');
 
-//dashboard post
+//dashboard posts
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
+Route::get('/dashboard/manage-posts/featured', [AdminFeaturedPostsController::class, 'index'])->middleware('auth');
 
 //admin users
 Route::resource('/dashboard/users', AdminUsersController::class)->except('show')->middleware('admin');

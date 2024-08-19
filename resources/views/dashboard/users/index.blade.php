@@ -228,7 +228,7 @@
                             </div>
                         </div>
 
-                        {{-- confirm password --}}
+                        {{-- retype password --}}
                         <div class="col-span-2">
                             <label for="retype-password"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm

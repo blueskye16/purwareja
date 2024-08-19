@@ -134,6 +134,7 @@
                         <span class="ml-3">Post Categories</span>
                     </a>
                 </li> --}}
+
                 {{-- dropdown --}}
                 <li>
                     <button type="button"
@@ -197,3 +198,29 @@
         @endcan
     </div>
 </aside>
+
+<script>
+    // Get the dropdown element
+    const dropdown = document.getElementById('dropdown-pages');
+
+    // Get all sub-section links
+    const links = document.querySelectorAll('#dropdown-pages li a');
+
+    // Add an event listener to each link
+    links.forEach((link) => {
+        link.addEventListener('click', () => {
+            // Remove the hidden class from the dropdown
+            dropdown.classList.remove('hidden');
+        });
+    });
+
+    // Check on page load if the current URL matches any sub-section link
+    document.addEventListener('DOMContentLoaded', () => {
+        const currentUrl = window.location.href;
+        links.forEach((link) => {
+            if (currentUrl.includes(link.href)) {
+                dropdown.classList.remove('hidden');
+            }
+        });
+    });
+</script>

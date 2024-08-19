@@ -66,7 +66,10 @@ class AdminUsersController extends Controller
      */
     public function edit(User $user)
     {
-        $isAdminPreviousSelection = auth()->user()->is_admin;
+        // $isAdminPreviousSelection = auth()->user()->is_admin;
+        // kalo ini diatas masuknya ke admin yang lagi ngedit / buka dashboard. bukan user yg mau di edit 
+
+        $isAdminPreviousSelection = $user->is_admin;
         return view('dashboard.users.edit', [
             'user' => $user,
             'selectedRole' => $isAdminPreviousSelection
@@ -78,17 +81,30 @@ class AdminUsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        dd($request);
+        // dd($request);
         $rules = [
             'name' => ['required', 'max:255'],
-            'email' => ['required', 'email', 'unique:users'],
-            'password' => ['min:5', 'max:255'],
+            'email' => ['required', 'email'],
+            // 'password' => ['min:5', 'max:255'],
             // 'retype-password' => ['same:password'],
             'is_admin' => ['required', 'in:0,1']
         ];
 
+
         $validatedData = $request->validate($rules);
-        // $validatedData['user_id'] = auth()->user()->id;
+
+        if ($request->filled('password')) {
+            $rules['password'] = ['required', 'min:5', 'max:255'];
+            $rules['retype-password'] = ['required', 'same:password'];
+    
+            $passwordValidation = $request->validate($rules);
+    
+            if ($passwordValidation['password'] === $passwordValidation['retype-password']) {
+                $validatedData['password'] = bcrypt($passwordValidation['password']);
+            } else {
+                return redirect()->back()->withErrors(['retype-password' => 'Passwords do not match!']);
+            }
+        }
 
 
         User::where('id', $user->id)->update($validatedData);

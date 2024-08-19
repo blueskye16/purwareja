@@ -9,13 +9,27 @@
             <div class="mb-2">
                 <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
                 <input type="text" id="name" name="name" value="{{ old('name', $user->name) }}" autofocus
-                    class="appearance-none block w-full px-3 py-2 border-gray-300 border-2 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:text-gray-700 dark:border-gray-600 dark:focus:ring-blue-400 dark:focus:border-blue-400">
+                    class="@error('name')
+                        bg-red-50 border border-red-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-red-700 dark:border-red-600 dark:placeholder-red-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500
+                    @enderror _primary-input">
+                @error('name')
+                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                        {{ $message }}
+                    </p>
+                @enderror
             </div>
             {{-- email --}}
             <div class="mb-2">
                 <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                 <input type="text" id="email" name="email" value="{{ old('email', $user->email) }}"
-                    class="appearance-none block w-full px-3 py-2 border-gray-300 border-2 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:text-gray-700 dark:border-gray-600 dark:focus:ring-blue-400 dark:focus:border-blue-400">
+                    class="@error('email')
+                        bg-red-50 border border-red-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-red-700 dark:border-red-600 dark:placeholder-red-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500
+                    @enderror _primary-input">
+                @error('email')
+                    <p class="mt-2 text-sm text-red-600 dark:text-red-500">
+                        {{ $message }}
+                    </p>
+                @enderror
             </div>
             {{-- password --}}
             <div class="mb-2">
@@ -85,17 +99,15 @@
                     <label for="role_1"
                         class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700 w-[50%] m-2 ml-0 cursor-pointer">
                         <input id="role_1" type="radio" value="1" name="is_admin"
-                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                            {{ old('is_admin', $selectedRole) == '1' ? 'checked' : '' }}>
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" {{ old('is_admin', $selectedRole) == 1 ? 'checked' : '' }}>
+                            {{-- {{ old('is_admin', $selectedRole) == '1' ? 'checked' : '' }} --}}
                         <span class="ml-2">Super Admin</span>
                     </label>
                     <label for="role_0"
                         class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700 w-[50%] m-2 mr-0 cursor-pointer">
                         <input id="role_0" type="radio" value="0" name="is_admin"
-                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                            {{ old('is_admin', $selectedRole) == '0' ? 'checked' : '' }}>
-                        <span
-                            class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Admin</span>
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" {{ old('is_admin', $selectedRole) == 0 ? 'checked' : '' }}>
+                        <span class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Admin</span>
                     </label>
                 </div>
             </div>
