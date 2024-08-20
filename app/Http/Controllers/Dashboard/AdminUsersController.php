@@ -85,8 +85,6 @@ class AdminUsersController extends Controller
         $rules = [
             'name' => ['required', 'max:255'],
             'email' => ['required', 'email'],
-            // 'password' => ['min:5', 'max:255'],
-            // 'retype-password' => ['same:password'],
             'is_admin' => ['required', 'in:0,1']
         ];
 
@@ -105,7 +103,6 @@ class AdminUsersController extends Controller
                 return redirect()->back()->withErrors(['retype-password' => 'Passwords do not match!']);
             }
         }
-
 
         User::where('id', $user->id)->update($validatedData);
 
