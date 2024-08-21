@@ -20,6 +20,7 @@ Route::get('/posts', [PostsController::class, 'index']);
 Route::get('/posts/{post:slug}', function (Post $post) {
     return view('post', ['title' => 'Single Post', 'post' => $post]);
 });
+
 Route::get('/categories/{category:slug}', function (Category $category) {
     return view('posts', ['title' => count($category->posts) . ' Article in ' . $category->name, 'posts' => $category->posts]);
 });
@@ -39,15 +40,24 @@ Route::get('/dashboard', function () {
 })->name('dashboard')->middleware('auth');
 
 //dashboard posts
-Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
-Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
-Route::get('/dashboard/manage-posts/featured', [AdminFeaturedPostsController::class, 'index'])->middleware('auth');
+Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
+    Route::get('/posts/checkSlug', [DashboardPostController::class, 'checkSlug']);
+    Route::resource('/posts', DashboardPostController::class);
+});
+// Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
+// Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
 
 //admin users
 Route::resource('/dashboard/users', AdminUsersController::class)->except('show')->middleware('admin');
 
-// category
-Route::resource('/dashboard/manage-posts/categories', AdminCategoryController::class)->except('show')->middleware('admin');
-Route::get('/dashboard/manage-posts/categories/checkSlug', [AdminCategoryController::class, 'checkSlug'])->middleware('admin');
-// Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
-// Route::get('/dashboard/categories/checkSlug', [AdminCategoryController::class, 'checkSlug'])->middleware('admin');
+// manage post
+Route::group(['prefix' => 'dashboard/manage-posts', 'middleware' => 'admin'], function () {
+    Route::get('/categories/checkSlug', [AdminCategoryController::class, 'checkSlug']);
+    Route::resource('/categories', AdminCategoryController::class)->except('show');
+    Route::get('/featured', [AdminFeaturedPostsController::class, 'index']);
+});
+
+
+// Route::resource('/dashboard/manage-posts/categories', AdminCategoryController::class)->except('show')->middleware('admin');
+// Route::get('/dashboard/manage-posts/categories/checkSlug', [AdminCategoryController::class, 'checkSlug'])->middleware('admin');
+// Route::get('/dashboard/manage-posts/featured', [AdminFeaturedPostsController::class, 'index'])->middleware('auth');

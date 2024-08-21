@@ -45,6 +45,10 @@
                         Category
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        Last Updated
+                    </th>
+                    {{-- bisa nambahin fiture opsi sortirnya, skrg baru descending dari terbaru --}}
+                    <th scope="col" class="px-6 py-3">
                         Action
                     </th>
                 </tr>
@@ -63,6 +67,9 @@
                         </th>
                         <td class="px-6 py-4">
                             {{ $post->category->name }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $post->updated_at }}
                         </td>
                         <td class="px-6 py-4 flex">
                             <a href="/dashboard/posts/{{ $post->slug }}"

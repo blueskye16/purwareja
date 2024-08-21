@@ -16,8 +16,11 @@ class DashboardPostController extends Controller
      */
     public function index()
     {
+        $posts = Post::where('user_id', auth()->user()->id)->get();
+        $posts = $posts->sortByDesc('updated_at');
         return view('dashboard.posts.index', [
-            'posts' => Post::where('user_id', auth()->user()->id)->get(),
+            'posts' => $posts,
+            // 'posts' => Post::where('user_id', auth()->user()->id)->get(),
         ]);
     }
 
@@ -48,15 +51,15 @@ class DashboardPostController extends Controller
         ]);
 
         // thumbnail picture
-        $validatedData['image'] = $request->file('image')->store('post-images');
+        // $validatedData['image'] = $request->file('image')->store('post-images');
 
         // from WPU
-        // if($request->file('image')) {
-        //     $validatedData['image'] = $request->file('image')->store('post-images');
-        // }
+        if ($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
 
         // this from wpu -> gatau penting apa kaga
-        // $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['user_id'] = auth()->user()->id;
 
         // buat ngilangin strip htmlnya
         // $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
