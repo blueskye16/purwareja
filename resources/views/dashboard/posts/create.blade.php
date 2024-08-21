@@ -8,7 +8,7 @@
         <div class="mb-5">
             <div class="mb-2">
                 <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
-                <input type="text" id="title" name="title" autofocus value="{{ old('title') }}"
+                <input type="text" id="title" name="title" autofocus
                     class="@error('title')
                         bg-red-50 border border-red-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-red-700 dark:border-red-600 dark:placeholder-red-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500
                     @enderror _primary-input"
@@ -22,7 +22,7 @@
             {{-- slug --}}
             <div class="mb-2">
                 <label for="slug" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Slug</label>
-                <input type="text" id="slug" name="slug" value="{{ old('slug') }}"
+                <input type="text" id="slug" name="slug"
                     class="@error('slug')
                         bg-red-50 border border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-gray-700 focus:border-red-500 block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500
                     @enderror bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -86,14 +86,35 @@
     </form>
 
     <script>
+        // const title = document.querySelector('#title');
+        // const slug = document.querySelector('#slug');
+
+        // // automate slug
+        // title.addEventListener('change', function() {
+        //     fetch('/dashboard/posts/checkSlug?title=' + title.value)
+        //         .then(response => response.json())
+        //         .then(data => slug.value = data.slug)
+        //         .catch(error => console.error('Error:', error));
+        // });
+
+        // document.addEventListener('trix-file-accept', function(e) {
+        //     e.preventDefault();
+        // });
+
         const title = document.querySelector('#title');
         const slug = document.querySelector('#slug');
 
-        // automate slug
         title.addEventListener('change', function() {
             fetch('/dashboard/posts/checkSlug?title=' + title.value)
-                .then(response => response.json())
+                .then(response => {
+                    // Check for valid JSON response
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
                 .then(data => slug.value = data.slug)
+                .catch(error => console.error('Error:', error));
         });
 
         document.addEventListener('trix-file-accept', function(e) {

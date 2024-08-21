@@ -111,6 +111,7 @@ class DashboardPostController extends Controller
                 Storage::delete($request->oldImage);
             }
             $validatedData['image'] = $request->file('image')->store('post-images');
+            // nama store('post-images') dari mana?
         }
 
         // $validatedData['user_id'] = auth()->user()->id;
