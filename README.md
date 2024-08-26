@@ -6,7 +6,15 @@
 - benerin edit password tricky bet anjir
 - cari cara biar pas ada elemen dropdown aside ada yg dibuka, dropdownnya juga tetep kebuka (ga nutup)
   - fitur (eye) di categories --> nunjukin ke postingan mana aja dgn kategori yg sesuai + bisa lgsg edit postnya
-  - urutan postingannya dari yang terbaru
+  - urutan postingannya dari yang terbaru -> done
+  - tambah fitur bersihkan pencarian
+  - ubah ke bahasa indonesia -> konsisten
+
+- intinya buat bikin pinned post, mesti nyentuh database buat nyimpen value yg mau di pin
+  - buat fitur edit navigasi juga sama keliatannya
+
+garap app mobile lebi murah ketimbang joki website?
+  mobile app 300 / website 600
 
 
 ## home

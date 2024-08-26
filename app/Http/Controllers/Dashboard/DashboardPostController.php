@@ -18,8 +18,10 @@ class DashboardPostController extends Controller
     {
         $posts = Post::where('user_id', auth()->user()->id)->get();
         $posts = $posts->sortByDesc('updated_at');
+        $posts = Post::filter(request(['search', 'category']))->latest()->paginate(12)->withQueryString();
         return view('dashboard.posts.index', [
             'posts' => $posts,
+
             // 'posts' => Post::where('user_id', auth()->user()->id)->get(),
         ]);
     }

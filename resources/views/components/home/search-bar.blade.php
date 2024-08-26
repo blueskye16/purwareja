@@ -1,6 +1,7 @@
 <div class="py-4 px-4 mx-auto max-w-screen-xl lg:px-6">
     <div class="mx-auto max-w-screen-md sm:text-center">
-        <form action="/posts">
+        <form action="{{ $action }}">
+        {{-- <form action="/posts"> --}}
             @if (request('category'))
                 <input type="hidden" name='category' value='{{ request('category') }}'>
             @endif

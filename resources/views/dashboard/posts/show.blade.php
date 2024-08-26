@@ -35,19 +35,15 @@
                         </div>
                         <a href="/posts?category={{ $post->category->slug }}"
                             class="rounded-full bg-{{ $post->category->color }}-200 p-2.5 h-9 text-center font-medium text-gray-800 z-0 text-xs hover:border-gray-600 hover:border-solid hover:border-2">
-                            {{-- hover:bg-{{ $post->category->color }}-600 --}}
                             {{ $post->category->name }}
                         </a>
                     </div>
                     @if ($post->image)
                         <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}"
                             class="h-64 min-w-full object-cover mt-3">
-                    {{-- @else --}}
-                        {{-- <img src="/images/bg-batik.jpg" alt="Post Image" class="h-64 min-w-full object-cover mt-3"> --}}
                     @endif
                 </header>
                 <p class="text-base text-gray-600">{!! $post->body !!}</p>
-                {{-- <p class="text-base">{{ $post->body }}</p> --}}
             </article>
         </div>
     </div>

@@ -31,13 +31,16 @@
 
     <a href="/dashboard/posts/create" class="_btn">Create post
     </a>
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-4">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">
                         No
                     </th>
+                    {{-- <th scope="col" class="px-6 py-3">
+                        No
+                    </th> --}}
                     <th scope="col" class="px-6 py-3">
                         Title
                     </th>
@@ -59,8 +62,12 @@
                         class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                         <th scope="row"
                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{ $loop->iteration }}
+                            {{ $post->id }}
                         </th>
+                        {{-- <th scope="row"
+                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ $loop->iteration }}
+                        </th> --}}
                         <th scope="row"
                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {{ $post->title }}
@@ -94,6 +101,8 @@
             </tbody>
         </table>
     </div>
+    {{ $posts->links() }}
+
 
 
 </x-dashboard.layout>

@@ -1,9 +1,29 @@
-<div>
-    <label for="password"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-    <input type="password" name="password" id="password" placeholder="•••••" required
-        class="@error('password') invalid:border-red-500 @enderror bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-    <button type="button">
-        <i data-feather="eye" class="relative right-3 top-3"></i>
-    </button>
-</div>
+<x-dashboard.layout>
+    {{-- ... --}}
+
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-4">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                {{-- ... --}}
+            </thead>
+            <tbody>
+                @foreach ($posts as $post)
+                    <tr
+                        class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                        {{-- ... --}}
+                        <td class="px-6 py-4 flex">
+                            <form action="/dashboard/manage-posts/featured/{{ $post->slug }}/pin" method="POST">
+                                @csrf
+                                <button type="submit" class="bg-blue-500 p-1 m-1 rounded-md text-white hover:bg-blue-700">
+                                    Sematkan
+                                </button>
+                            </form>
+                            {{-- ... --}}
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+    {{-- ... --}}
+</x-dashboard.layout>
