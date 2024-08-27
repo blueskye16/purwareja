@@ -54,8 +54,9 @@ Route::resource('/dashboard/users', AdminUsersController::class)->except('show')
 Route::group(['prefix' => 'dashboard/manage-posts', 'middleware' => 'admin'], function () {
     Route::get('/categories/checkSlug', [AdminCategoryController::class, 'checkSlug']);
     Route::resource('/categories', AdminCategoryController::class)->except('show');
-    Route::get('/featured', [AdminFeaturedPostsController::class, 'index']);
-    Route::get('/featured/{post}/pin', [AdminFeaturedPostsController::class, 'pin']);
+    Route::get('/featured', [AdminFeaturedPostsController::class, 'index'])->name('featured');
+    Route::patch('/featured/{post}/pin', [AdminFeaturedPostsController::class, 'pin'])->name('pin');
+    Route::patch('/featured/{post}/unpin', [AdminFeaturedPostsController::class, 'unpin'])->name('unpin');
 });
 
 

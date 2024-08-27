@@ -29,8 +29,16 @@
         </div>
     @endif
 
+    @push('scripts')
+        <script>
+            @if (session('success'))
+                toastr.success("{{ session('success') }}");
+            @endif
+        </script>
+    @endpush
+
     {{-- scale what it is --}}
-    <x-home.featured-articles></x-home.featured-articles>
+    <x-home.featured-articles :featured-posts="$featuredPosts"></x-home.featured-articles>
 
     <h2 class="py-4 mt-6 border-t-2 border-gray-200 text-[2em] md:text-3xl font-semibold text-center">Pilih Artikel
     </h2>
@@ -83,15 +91,32 @@
                         <td class="px-6 py-4">
                             {{ $post->updated_at }}
                         </td>
-                        <td class="px-6 py-4 flex">
+                        {{-- <td class="px-6 py-4 flex">
                             <form action="/dashboard/manage-posts/featured/{{ $post->slug }}/pin" method="POST">
                                 @csrf
+                                @if ($post->is_featured == '0')
                                 <button type="submit"
                                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                                     <i data-feather="plus-circle"></i>
                                 </button>
+                                @else
+                                <button type="submit"
+                                    class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">
+                                    <i data-feather="plus-circle"></i>
+                                </button>
+                                @endif
                             </form>
-
+                        </td> --}}
+                        <td class="px-6 py-4 flex">
+                            <form action="{{ $post->is_featured ? route('unpin', $post) : route('pin', $post) }}"
+                                method="POST">
+                                @csrf
+                                @method('PATCH')
+                                <button type="submit"
+                                    class="text-white {{ $post->is_featured ? 'bg-red-700' : 'bg-blue-700' }} hover:bg-{{ $post->is_featured ? 'red-800' : 'blue-800' }} focus:ring-4 focus:ring-{{ $post->is_featured ? 'red-300' : 'blue-300' }} font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-{{ $post->is_featured ? 'red-600' : 'blue-600' }} dark:hover:bg-{{ $post->is_featured ? 'red-700' : 'blue-700' }} focus:outline-none dark:focus:ring-{{ $post->is_featured ? 'red-800' : 'blue-800' }}">
+                                    <i data-feather="plus-circle"></i>
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
