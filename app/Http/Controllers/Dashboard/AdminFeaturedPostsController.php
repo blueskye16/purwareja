@@ -18,12 +18,12 @@ class AdminFeaturedPostsController extends Controller
 
         $featuredPosts = Post::where('is_featured', true)->take(3)->get();
         
-        // return view('dashboard.featured-posts.index', compact('featuredPosts'));
         return view('dashboard.featured-posts.index', [
             'posts' => $posts,
             'featuredPosts' => $featuredPosts
         ]);
     }
+
     public function pin(Post $post) {
         $post->is_featured = !$post->is_featured;
         $post->save();

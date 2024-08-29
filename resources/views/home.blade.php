@@ -11,7 +11,9 @@
                     Unggulan
                 </h1>
             </div>
-            <x-home.featured-articles></x-home.featured-articles>
+            {{-- <x-home.featured-articles></x-home.featured-articles> --}}
+            <x-home.featured-articles :featured-posts="$featuredPosts"></x-home.featured-articles>
+
         </section>
 
 

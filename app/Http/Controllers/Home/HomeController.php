@@ -11,10 +11,12 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // dd(Auth::check());
+        $featuredPosts = Post::where('is_featured', true)->take(3)->get();
+
         return view('home', [
             'title' => 'Konten Terbaru',
-            'posts' => Post::latest()->paginate(6)->withQueryString()
+            'posts' => Post::latest()->paginate(6)->withQueryString(),
+            'featuredPosts' => $featuredPosts,
         ]);
     }
 }
