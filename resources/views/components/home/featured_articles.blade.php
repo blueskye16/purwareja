@@ -120,7 +120,9 @@
                 class="relative flex flex-col rounded-xl bg-white text-gray-700 shadow-md mx-auto lg:mx-0 hover:shadow-lg transition-shadow duration-300 max-w-full">
                 <div class="relative overflow-hidden rounded-xl bg-transparent">
                     @if (Request::is('dashboard*'))
-                        <form action="{{ url('dashboard/manage-posts/featured/' . $post->id . '/unpin') }}"
+                        <form action="{{ url('dashboard/manage-posts/featured/' . $post->slug . '/unpin') }}"
+                            {{-- kalo dipakein $post->id jadinya error, cek kenapa (ada yg duplikat sbelah mana?)--}}
+                            {{-- next benerin body biar ga ngirim tag html ke postingan --}}
                             method="POST">
                             @csrf
                             @method('PATCH')
@@ -155,7 +157,6 @@
                     </a>
                 </div>
             </div>
-
         @endif
     @endforeach
 </div>

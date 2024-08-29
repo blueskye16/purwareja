@@ -27,6 +27,7 @@ class AdminFeaturedPostsController extends Controller
     }
 
     public function unpin(Post $post) {
+        // dd($post);
         $post->is_featured = false;
         $post->save();
     
