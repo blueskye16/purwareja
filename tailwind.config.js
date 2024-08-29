@@ -84,7 +84,11 @@ export default {
                 },
             },
         },
-
+        // variants: {
+        //     extend: {
+        //         scale: ['hover', 'focus'],
+        //     },
+        // },
     },
     plugins: [require("flowbite/plugin"), require("flowbite-typography")],
     safelist: [],

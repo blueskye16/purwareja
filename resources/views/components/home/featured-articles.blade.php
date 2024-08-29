@@ -118,6 +118,17 @@
         <div id="featuredArticle"
             class="relative flex flex-col rounded-xl bg-white text-gray-700 shadow-md mx-auto lg:mx-0 hover:shadow-lg transition-shadow duration-300 max-w-full">
             <div class="relative overflow-hidden rounded-xl bg-transparent">
+                @if (Request::is('dashboard*'))
+                    <form action="{{ url('dashboard/manage-posts/featured/' . $featuredPost->id . '/unpin') }}"
+                        method="POST">
+                        @csrf
+                        @method('PATCH')
+                        <button type="submit"
+                            class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 absolute left-0 top-0">
+                            Unfeature
+                        </button>
+                    </form>
+                @endif
                 <img src="/images/bg-hero.jpg" alt="featured image" class="w-full h-48 object-cover" />
             </div>
             <div class="p-4 sm:p-6 max-h-72">
@@ -129,23 +140,6 @@
                         {{ $featuredPost->created_at->format('l, j F Y') }}
                     </h4>
                 </div>
-                {{-- <div class="h-8">
-                    @if (str_word_count($featuredPost->title) > 20)
-                        <p class="mt-4 font-semibold text-lg">{{ Str::words($featuredPost->title, 3) }}</p>
-                    @else
-                        <p class="mt-4 font-semibold text-lg">{{ Str::limit($featuredPost->title, 40) }}</p>
-                    @endif
-                </div> --}}
-                {{-- <div class="h-8">
-                    <p class="mt-4 font-semibold text-lg">
-                        @if (str_word_count($featuredPost->title) > 5)
-                            <span class="lg:hidden">{{ Str::words($featuredPost->title, 3) }}</span>
-                            <span class="hidden lg:inline">{{ Str::words($featuredPost->title, 4) }}</span>
-                        @else
-                            {{ $featuredPost->title }}
-                        @endif
-                    </p>
-                </div> --}}
                 <div class="h-8">
                     <p class="mt-4 font-semibold text-lg">{{ Str::words($featuredPost->title, 3) }}</p>
                 </div>
@@ -158,17 +152,6 @@
                     class="inline-block py-2.5 text-blue-500 hover:text-blue-700 hover:scale-105 duration-100 transition-transform transform">Read
                     more &raquo;
                 </a>
-                @if (Request::is('dashboard*'))
-                    <form action="{{ url('dashboard/manage-posts/featured/' . $featuredPost->id . '/unpin') }}"
-                        method="POST" class="mt-4">
-                        @csrf
-                        @method('PATCH')
-                        <button type="submit"
-                            class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5">
-                            Unfeature
-                        </button>
-                    </form>
-                @endif
             </div>
         </div>
     @endforeach
