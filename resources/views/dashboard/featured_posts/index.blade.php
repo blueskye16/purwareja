@@ -38,7 +38,7 @@
     @endpush
 
     {{-- scale what it is --}}
-    <x-home.featured-articles :featured-posts="$featuredPosts"></x-home.featured-articles>
+    <x-home.featured_articles :posts="$posts"></x-home.featured_articles>
     {{-- gimana kalo si component itu diarahin ke satu controller, how? --}}
 
     <h2 class="py-4 mt-6 border-t-2 border-gray-200 text-[2em] md:text-3xl font-semibold text-center">Pilih Artikel

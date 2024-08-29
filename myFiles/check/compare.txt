@@ -1,4 +1,1 @@
-                <a href="#"
-                    class="inline-block p-2.5 mt-4 text-blue-500 hover:text-blue-700 transform transition-transform duration-200 hover:scale-105">
-                    Read more &raquo;
-                </a>
+    <x-home.featured-articles :featured-posts="$featuredPosts"></x-home.featured-articles>
