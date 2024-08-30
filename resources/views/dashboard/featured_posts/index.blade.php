@@ -34,12 +34,13 @@
         <div id="alert-1"
             class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
             role="alert">
-            <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+            {{-- <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor" viewBox="0 0 20 20">
                 <path
                     d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-            </svg>
-            <span class="sr-only">Info</span>
+            </svg> --}}
+            <i data-feather="alert-circle" class="flex-shrink-0 inline w-4 h-4 me-3"></i>
+            <span class="sr-only">Alert</span>
             <div class="ms-3 text-sm font-medium">
                 {{ session('error') }}
             </div>
@@ -74,7 +75,7 @@
     <x-home.search-bar action="/dashboard/manage-posts/featured"></x-home.search-bar>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-4">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <thead class="text-sm text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">
                         No
@@ -83,20 +84,34 @@
                         No
                     </th> --}}
                     <th scope="col" class="px-6 py-3 max-w-xs">
-                        Title
+                        Judul
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Category
+                        Kategori
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Last Updated
+                        Terakhir Diedit
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Gambar
+                        Gambar Utama
                     </th>
                     {{-- bisa nambahin fiture opsi sortirnya, skrg baru descending dari terbaru --}}
                     <th scope="col" class="px-6 py-3">
-                        Action
+                        Aksi
+                        <i data-popover-target="featuredArticleRule" data-feather="info" class="w-4 h-4 inline-block ml-1 cursor-pointer text-yellow-400 font-semibold"></i>
+
+                        <div data-popover id="featuredArticleRule" role="tooltip"
+                            class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800 normal-case">
+                            <div
+                                class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
+                                <h3 class="font-semibold text-gray-900 dark:text-white">Aturan</h3>
+                            </div>
+                            <div class="px-3 py-2">
+                                <p>Hanya artikel dengan <u>gambar utama</u> yang dapat disematkan.</p>
+                            </div>
+                            <div data-popper-arrow></div>
+                        </div>
+
                     </th>
                 </tr>
             </thead>
@@ -156,9 +171,8 @@
                                         <button type="button"
                                             class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
                                             data-modal-hide="image-modal">
-                                            <svg class="w-3 h-3" aria-hidden="true"
-                                                xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                viewBox="0 0 14 14">
+                                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="none" viewBox="0 0 14 14">
                                                 <path stroke="currentColor" stroke-linecap="round"
                                                     stroke-linejoin="round" stroke-width="2"
                                                     d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
@@ -183,8 +197,8 @@
                                 @csrf
                                 @method('PATCH')
                                 <button type="submit"
-                                    class="text-white {{ $post->is_featured ? 'bg-red-700' : 'bg-blue-700' }} hover:bg-{{ $post->is_featured ? 'red-800' : 'blue-800' }} focus:ring-4 focus:ring-{{ $post->is_featured ? 'red-300' : 'blue-300' }} font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-{{ $post->is_featured ? 'red-600' : 'blue-600' }} dark:hover:bg-{{ $post->is_featured ? 'red-700' : 'blue-700' }} focus:outline-none dark:focus:ring-{{ $post->is_featured ? 'red-800' : 'blue-800' }} align-middle">
-                                    <i data-feather="plus-circle"></i>
+                                    class="text-white {{ $post->is_featured ? 'bg-red-700' : 'bg-blue-700' }} hover:bg-{{ $post->is_featured ? 'red-800' : 'blue-800' }} focus:ring-4 focus:ring-{{ $post->is_featured ? 'red-300' : 'blue-300' }} font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-{{ $post->is_featured ? 'red-600' : 'blue-600' }} dark:hover:bg-{{ $post->is_featured ? 'red-700' : 'blue-700' }} focus:outline-none dark:focus:ring-{{ $post->is_featured ? 'red-800' : 'blue-800' }}">
+                                    <i data-feather={{ $post->is_featured ? 'minus-circle' : 'plus-circle' }}></i>
                                 </button>
                             </form>
                         </td>

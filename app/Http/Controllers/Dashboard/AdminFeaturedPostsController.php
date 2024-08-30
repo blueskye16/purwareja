@@ -25,6 +25,9 @@ class AdminFeaturedPostsController extends Controller
         $posts = Post::all();
 
         if ($posts->where('is_featured', true)->count() < 3) {
+            if (!$post->image) {
+                return redirect()->route('featured')->with('error', 'Artikel harus memiliki gambar utama untuk disematkan!');
+            }
             $post->is_featured = true;
             $post->save();
             return redirect()->route('featured')->with('success', 'Artikel berhasil di sematkan!');

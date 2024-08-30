@@ -67,7 +67,7 @@
                 text-xs text-red-700 dark:text-red-300
             @enderror text-xs text-gray-800 dark:text-gray-300"
                 id="file_input_help">SVG, PNG, JPG or GIF (MAX.
-                1mb / 1024kb).</p>
+                5mb / 5000kb).</p>
             @error('image')
                 <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</p>
             @enderror
