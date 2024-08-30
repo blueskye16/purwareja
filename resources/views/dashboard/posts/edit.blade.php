@@ -56,7 +56,7 @@
                 image</label>
             <input type="hidden" name="oldImage" value="{{ $post->image }}">
                 @if ($post->image)
-                    <img src="{{ asset('storage/' . $post->image) }}" class="img-preview h-auto max-w-md rounded-lg mb-3">
+                    <img src="{{ asset('storage/' . $post->image) }}" class="img-preview h-auto max-w-md rounded-lg mb-3" alt="Gambar Utama Artikel">
                 @else
                     <img class="img-preview h-auto max-w-md rounded-lg mb-3">
                 @endif

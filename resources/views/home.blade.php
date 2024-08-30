@@ -7,12 +7,12 @@
         {{-- featured articles --}}
         <section class="max-w-full">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                <h1 class="text-[2em] md:text-4xl font-semibold text-center border-t-2 border-gray-200 mt-10 py-7">Konten
+                <h1 class="text-[2em] md:text-4xl font-semibold text-center border-t-2 border-gray-200 mt-6 py-7">Konten
                     Unggulan
                 </h1>
             </div>
             {{-- <x-home.featured-articles></x-home.featured-articles> --}}
-            <x-home.featured-articles :featured-posts="$featuredPosts"></x-home.featured-articles>
+            <x-home.featured_articles :posts="$posts"></x-home.featured_articles>
 
         </section>
 
