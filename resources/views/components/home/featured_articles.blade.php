@@ -38,6 +38,7 @@
                     </div>
                     <div class="h-32">
                         <p class="text-sm leading-6 text-gray-600">
+                            {{-- {!! Str::limit($post->body, 150) !!} --}}
                             {{ Str::limit($post->body, 150) }}
                         </p>
                     </div>

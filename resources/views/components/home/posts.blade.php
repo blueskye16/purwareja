@@ -14,7 +14,8 @@
             </a>
         </h3>
         <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
-            {{ Str::limit($post->body, 100) }}</p>
+            {!! Str::limit($post->body, 100) !!}</p>
+            {{-- {{ Str::limit($post->body, 100) }}</p> --}}
     </div>
     <a href="/posts/{{ $post->slug }}"
         class="mt-5 text-blue-500 hover:text-blue-700 hover:scale-110 hover:ease-linear">
