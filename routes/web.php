@@ -4,13 +4,14 @@ use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Home\PostsController;
 use App\Http\Controllers\Dashboard\AdminUsersController;
 use App\Http\Controllers\Dashboard\AdminCategoryController;
-use App\Http\Controllers\Dashboard\AdminFeaturedPostsController;
 use App\Http\Controllers\Dashboard\DashboardPostController;
+use App\Http\Controllers\Dashboard\AdminFeaturedPostsController;
 
 //HOME
 route::get('/', [HomeController::class, 'index'])->name('home');
@@ -24,6 +25,7 @@ Route::get('/posts/{post:slug}', function (Post $post) {
 Route::get('/categories/{category:slug}', function (Category $category) {
     return view('posts', ['title' => count($category->posts) . ' Article in ' . $category->name, 'posts' => $category->posts]);
 });
+
 
 //login
 Route::get('/admin', [LoginController::class, 'index'])->name('login')->middleware('guest');

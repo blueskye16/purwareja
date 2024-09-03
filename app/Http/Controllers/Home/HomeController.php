@@ -14,8 +14,8 @@ class HomeController extends Controller
         $featuredPosts = Post::where('is_featured', true)->take(3)->get();
 
         return view('home', [
-            'title' => 'Konten Terbaru',
-            'posts' => Post::latest()->paginate(6)->withQueryString(),
+            // 'title' => 'Konten Terbaru',
+            'posts' => Post::latest()->paginate(9)->withQueryString(),
             'featuredPosts' => $featuredPosts,
         ]);
     }
