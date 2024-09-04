@@ -86,21 +86,6 @@
     </form>
 
     <script>
-        // const title = document.querySelector('#title');
-        // const slug = document.querySelector('#slug');
-
-        // // automate slug
-        // title.addEventListener('change', function() {
-        //     fetch('/dashboard/posts/checkSlug?title=' + title.value)
-        //         .then(response => response.json())
-        //         .then(data => slug.value = data.slug)
-        //         .catch(error => console.error('Error:', error));
-        // });
-
-        // document.addEventListener('trix-file-accept', function(e) {
-        //     e.preventDefault();
-        // });
-
         const title = document.querySelector('#title');
         const slug = document.querySelector('#slug');
 
@@ -117,10 +102,6 @@
                 .catch(error => console.error('Error:', error));
         });
 
-        // document.addEventListener('trix-file-accept', function(e) {
-        //     e.preventDefault();
-        // });
-
         function previewImage() {
             const image = document.querySelector('#image');
             const imgPreview = document.querySelector('.img-preview');
@@ -134,6 +115,17 @@
                 imgPreview.src = oFREvent.target.result;
             }
         }
+
+        // trix
+
+        // document.addEventListener('trix-file-accept', function(e) {
+        //     e.preventDefault();
+        // });
+
+        element.editor.undo()
+        element.editor.redo()
+        
     </script>
+    <script src="{{ asset('js/attachments.js') }}"></script>
 
 </x-dashboard.layout>

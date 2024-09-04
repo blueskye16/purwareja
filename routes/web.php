@@ -45,6 +45,7 @@ Route::get('/dashboard', function () {
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
     Route::get('/posts/checkSlug', [DashboardPostController::class, 'checkSlug']);
     Route::resource('/posts', DashboardPostController::class);
+    Route::post('/posts', [DashboardPostController::class, 'upload']);
 });
 // Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 // Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
