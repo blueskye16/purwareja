@@ -16,7 +16,7 @@
                             @csrf
                             @method('PATCH')
                             <button type="submit"
-                                class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 absolute left-0 top-0">
+                                class="text-white bg-red-700 opacity-85 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 absolute left-0 top-0">
                                 Hapus
                             </button>
                         </form>

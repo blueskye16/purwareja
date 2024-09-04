@@ -32,13 +32,18 @@ $dropdownRoutes = ['dashboard'];
                     <li>
                         <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
                             class="flex items-center justify-between w-full py-2 px-3 {{ are_routes_active($dropdownRoutes) ? 'text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent' : 'text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent' }} ">
-                            Selamat Datang Kembali, {{ auth()->user()->name }}
+                            Welcome, {{ auth()->user()->name }}
                             <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                 fill="none" viewBox="0 0 10 6">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="m1 1 4 4 4-4" />
                             </svg>
                         </button>
+
+                        {{-- <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar">
+                            <i data-feather="menu" class="cursor-pointer hover:text-blue-700"></i>
+                        </button> --}}
+
                         <!-- Dropdown menu -->
                         <div id="dropdownNavbar"
                             class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow md:w-44 w-[80vw] mx-6 dark:bg-gray-700 dark:divide-gray-600">
