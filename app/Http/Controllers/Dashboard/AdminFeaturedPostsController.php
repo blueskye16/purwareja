@@ -5,14 +5,25 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+// use HTMLPurifier;
+// use HTMLPurifier_Config;
 
 
 class AdminFeaturedPostsController extends Controller
 {
     public function index()
     {
+        
         $posts = Post::filter(request(['search', 'category']))->latest()->paginate(12)->withQueryString();
 
+        // $config = HTMLPurifier_Config::createDefault();
+        // $purifier = new HtmlPurifier($config);
+        // // $cleanHtml = $purifier->purify($post->body);
+
+        // foreach ($posts as $post) {
+        //     $post->body = $purifier->purify($post->body);
+        // }
+        
         return view('dashboard.featured_posts.index', [
             'posts' => $posts,
         ]);
