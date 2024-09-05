@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Home\PostsController;
+use App\Http\Controllers\Dashboard\NavItemsController;
 use App\Http\Controllers\Dashboard\AdminUsersController;
 use App\Http\Controllers\Dashboard\AdminCategoryController;
 use App\Http\Controllers\Dashboard\DashboardPostController;
@@ -50,8 +51,11 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
 // Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 // Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
 
-//admin users
+// admin users
 Route::resource('/dashboard/users', AdminUsersController::class)->except('show')->middleware('admin');
+
+// admin nav_items
+Route::resource('/dashboard/nav_items', NavItemsController::class)->except('show')->middleware('admin');
 
 // manage post
 Route::group(['prefix' => 'dashboard/manage-posts', 'middleware' => 'admin'], function () {

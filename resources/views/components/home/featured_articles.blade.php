@@ -38,8 +38,10 @@
                     </div>
                     <div class="h-32">
                         <p class="text-sm leading-6 text-gray-600">
+                            {!! strip_tags(Str::limit($post->body, 10)) !!}
+                            {{-- {!! Str::words($post->body, 10) !!} --}}
                             {{-- {!! Str::limit($post->body, 150) !!} --}}
-                            {{ Str::limit($post->body, 150) }}
+                            {{-- {{ Str::limit($post->body, 150) }} --}}
                         </p>
                     </div>
                     <a href="/posts/{{ $post->slug }}"

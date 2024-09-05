@@ -69,8 +69,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/dashboard/navigation"
-                        class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ Request::is('dashboard/navigation*') ? 'bg-blue-400' : '' }}">
+                    <a href="/dashboard/nav_items"
+                        class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ Request::is('dashboard/nav_items*') ? 'bg-blue-400' : '' }}">
                         <i data-feather="navigation-2"></i>
                         <span class="ml-3">Kelola Navigasi</span>
                     </a>

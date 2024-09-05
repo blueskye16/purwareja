@@ -13,8 +13,26 @@
 - intinya buat bikin pinned post, mesti nyentuh database buat nyimpen value yg mau di pin
   - buat fitur edit navigasi juga sama keliatannya
 
-garap app mobile lebi murah ketimbang joki website?
-  mobile app 300 / website 600
+### 
+## belum migrasi tabel baru ## ============================================
+- benerin nav dulu -> rapihin antara guest / admin
+bagian dashboard admin -> ganti jadi langsung ke postingan semua website
+- bikin profile di bagian navigasi -> bagian sini jadi parent klo profile lagi diklik -> hover biru
+    - jadi ada profile, artikel (yg dibuat sm adminnya), logout
+    - bagian profile nampilin nama, email, jmlh artikel yg uda dibuat, dropdown? nampilin postingan apa aja yg uda dibuat sm adminnya
+
+## kelola navigasi
+- nampilin versi mini nav dari guest, bisa diklik tp gabisa ngarah ke urlnya
+- coba bikin dimana dari versi mininya bisa diedit langsung (pake klik kanan)
+
+  nav_items feature
+  Use a single navigation table (e.g., nav_items) to store the navigation data. This table can have the following columns:
+id (primary key)
+nav_type (foreign key referencing the nav_type column in posts or categories)
+nav_order (foreign key referencing the nav_order column in posts or categories)
+parent_id (optional, for nested navigation)
+title (the display title for the navigation item)
+url (the URL associated with the navigation item)
 
 
 ## home
