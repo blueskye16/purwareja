@@ -73,10 +73,22 @@ php artisan migrate:rollback
   undo field / column table yang baru dibikin --> prakteknya
 
 - di bagian routes dropdown uda jalan, tapi pastiin bagian nav gaada rute sama yang lagi jalan biar active-nya ga dobel
+  
 - composer dump-autoload
   - buat benerin masalah dependencies habis nginstall package
   - suggestion: better pake composer dump-autoload --optimized || composer dump-autoload --classmap-authoritative
     - final option -> ngehapus file composer.lock --> composer intall (restart composer)
+
+- cari tau lebih soal:
+- DB::listen(function ($query) {
+    // Log the query
+    Log::info($query->sql);
+});
+
+where and how i should run this code to inspect the error
+
+buat ngeliat error pas migration -> run in chatgpt
+  - cari tau juga apa ada extension or somth yg bisa ngebantu ngespesifikasi error -> khususnya buat sql / run migration
 
 ### working with blackbox
 
