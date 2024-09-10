@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Home;
 
-use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Http\Request;
-// use Illuminate\Routing\Controller;
+use App\Http\Controllers\Controller;
+// use App\Repositories\PostRepository
 
 class HomeController extends Controller
 {
@@ -19,4 +19,23 @@ class HomeController extends Controller
             'featuredPosts' => $featuredPosts,
         ]);
     }
+
+    // ini niat tadinya mau dibikin buat controller component(posts) tapi malah engga bisa di paginate
+
+    // public function index(PostRepository $postRepository)
+    // {
+    //     try {
+    //         $posts = $postRepository->getLatestPosts(6);
+    //     } catch (\Exception $e) {
+    //         dd($e->getMessage());
+    //     }
+
+    //     // $posts = $postRepository->getLatestPosts(6);
+    //     $featuredPosts = $postRepository->getFeaturedPosts();
+
+    //     return view('home', [
+    //         'posts' => $posts,
+    //         'featuredPosts' => $featuredPosts,
+    //     ]);
+    // }
 }

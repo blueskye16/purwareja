@@ -44,10 +44,11 @@ class LoginController extends Controller
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');
         }
+        // $errorHeader = "Login failed";
+        // $errorDetail = "Username / password are incorrect";
 
-
+        // return back()->with(['loginErrorHedaer' => $errorHeader, 'loginErrorDetail' => $errorDetail]);
         return back()->with('loginError', 'Login failed!');
-
     }
 
     public function logout(Request $request)

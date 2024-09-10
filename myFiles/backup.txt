@@ -1,0 +1,1 @@
+<x-home.posts :posts="$posts"></x-home.posts>
