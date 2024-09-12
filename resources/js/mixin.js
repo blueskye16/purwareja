@@ -6,10 +6,10 @@ export default {
 
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
-            eyeIcon.setAttribute("data-feather", "eye-off");
+            eyeIcon.setAttribute("data-feather", "eye");
         } else {
             passwordInput.type = "password";
-            eyeIcon.setAttribute("data-feather", "eye");
+            eyeIcon.setAttribute("data-feather", "eye-off");
         }
 
         feather.replace();
@@ -20,10 +20,10 @@ export default {
 
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
-            eyeIcon.setAttribute("data-feather", "eye-off");
+            eyeIcon.setAttribute("data-feather", "eye");
         } else {
             passwordInput.type = "password";
-            eyeIcon.setAttribute("data-feather", "eye");
+            eyeIcon.setAttribute("data-feather", "eye-off");
         }
 
         feather.replace();

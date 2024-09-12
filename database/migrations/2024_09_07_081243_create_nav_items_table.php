@@ -14,13 +14,12 @@ return new class extends Migration
         Schema::create('nav_items', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('post_slug')->nullable();
+            $table->string('post_slug');
             $table->foreign('post_slug')
                 ->references('slug')
                 ->on('posts')
                 ->onDelete('cascade');
-            $table->string('url')->nullable(); // URL or slug reference to posts
-            $table->boolean('is_dropdown')->default(false); // Dropdown feature
+            $table->boolean('is_dropdown')->nullable()->default(false); // Dropdown feature
             $table->timestamps();
         });
 

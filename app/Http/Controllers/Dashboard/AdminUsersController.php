@@ -25,9 +25,19 @@ class AdminUsersController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => ['required', 'max:255'],
+            'email' => ['required', 'email', 'unique:users'],
+            'password' => ['required'],
+            'retype-password' => ['required'],
+            'is_admin' => ['required']
+        ]);
+
+        if ($validatedData['retype-password'] !== $validatedData['password']) {
+            return redirect()->back()->withErrors(['retype-password' => 'Passwords do not match!']);
+        }
     }
 
     /**

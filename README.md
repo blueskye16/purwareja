@@ -19,6 +19,7 @@
 ## belum migrasi tabel baru ## ============================================
 - benerin nav dulu -> rapihin antara guest / admin
 bagian dashboard admin -> ganti jadi langsung ke postingan semua website
+  bikin totalan post yang udh dibuat di web desa berapa, kategori berapa
 - bikin profile di bagian navigasi -> bagian sini jadi parent klo profile lagi diklik -> hover biru
     - jadi ada profile, artikel (yg dibuat sm adminnya), logout
     - bagian profile nampilin nama, email, jmlh artikel yg uda dibuat, dropdown? nampilin postingan apa aja yg uda dibuat sm adminnya

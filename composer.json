@@ -28,7 +28,7 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
-            "app/Helpers/DropdownNavbar.php"
+            "app/Helpers/ActiveButtonHelper.php"
         ]
     },
     "autoload-dev": {

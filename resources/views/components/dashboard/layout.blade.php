@@ -28,7 +28,7 @@
 
 <body class="bg-gray-400 dark:bg-gray-900">
     <div class="antialiased">
-        <x-home.nav-bar></x-home.nav-bar>
+        <x-dashboard.nav-bar></x-dashboard.nav-bar>
 
         <x-dashboard.aside></x-dashboard.aside>
 

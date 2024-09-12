@@ -145,7 +145,7 @@
                                 class="@error('name')
                                     bg-red-50 border border-red-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-red-700 dark:border-red-600 dark:placeholder-red-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500
                                 @enderror _primary-input"
-                                placeholder="Type user name" required>
+                                placeholder="Ketik nama anda" required>
                             @error('name')
                                 <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                                     {{ $message }}
@@ -160,8 +160,8 @@
                                 class="@error('email')
                                     bg-red-50 border border-red-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-red-700 dark:border-red-600 dark:placeholder-red-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500
                                 @enderror _primary-input"
-                                placeholder="Type admin email" required>
-                            @error('name')
+                                placeholder="Ketik email anda" required>
+                            @error('email')
                                 <p class="mt-2 text-sm text-red-600 dark:text-red-500">
                                     {{ $message }}
                                 </p>
@@ -190,37 +190,46 @@
                         {{-- flowbite password --}}
                         <div class="col-span-2">
                             <label for="password"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
-                                password</label>
-                            <input data-popover-target="popover-password" data-popover-placement="bottom"
-                                type="password" id="password" class="_primary-input" required />
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Password
+                            </label>
+                            <p class="hidden text-sm mb-2 text-gray-800" id="textPasswordLength">
+                                <i data-feather="x-circle" class="mr-2 text-sm" id="iconPasswordLength"></i>
+                                Minimal terdiri dari 6 karakter
+                            </p>
+                            <div class="relative">
+                                <input data-popover-target="popover-password" data-popover-placement="bottom"
+                                    type="password" id="password" class="_primary-input" placeholder="•••••"
+                                    required oninput="checkPasswordStrength()">
+                                <button type="button" class="absolute right-3 top-3"
+                                    onclick="window.mixin.togglePasswordVisibility()">
+                                    <i data-feather="eye-off" id="eye-icon" class="text-gray-600"></i>
+                                </button>
+                            </div>
+
                             <div data-popover id="popover-password" role="tooltip"
-                                class="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400">
+                                class="absolute z-10 invisible inline-block text-sm text-gray-700 transition-opacity duration-300 bg-zinc-300 border border-gray-200 rounded-lg shadow-sm opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400">
                                 <div class="p-3 space-y-2">
-                                    <h3 class="font-semibold text-gray-900 dark:text-white">Must have at least 6
-                                        characters</h3>
+                                    <h3 class="font-semibold text-gray-900 dark:text-white">Minimal terdiri dari 6
+                                        karakter</h3>
                                     <div class="grid grid-cols-4 gap-2">
-                                        <div class="h-1 bg-orange-300 dark:bg-orange-400"></div>
-                                        <div class="h-1 bg-orange-300 dark:bg-orange-400"></div>
-                                        <div class="h-1 bg-gray-200 dark:bg-gray-600"></div>
-                                        <div class="h-1 bg-gray-200 dark:bg-gray-600"></div>
+                                        <div class="h-1 bg-gray-400 dark:bg-gray-800 progress-bar"></div>
+                                        <div class="h-1 bg-gray-400 dark:bg-gray-800 progress-bar"></div>
+                                        <div class="h-1 bg-gray-400 dark:bg-gray-800 progress-bar"></div>
                                     </div>
-                                    <p>It's better to have:</p>
+                                    <p>Sebaiknya memiliki:</p>
                                     <ul>
                                         <li class="flex items-center mb-1">
-                                            <i data-feather="x-circle" id="checkPassUpperLower"
-                                                class="text-gray-300 mr-1 w-5"></i>
-                                            Upper & lower case letters
+                                            <i data-feather="x-circle" id="checkPassUpperLower" class="mr-1 w-5"></i>
+                                            Huruf besar dan huruf kecil
                                         </li>
                                         <li class="flex items-center mb-1">
-                                            <i data-feather="x-circle" id="checkPassSymbol"
-                                                class="text-gray-300 mr-1 w-5"></i>
-                                            A symbol (#$&)
+                                            <i data-feather="x-circle" id="checkPassSymbol" class="mr-1 w-5"></i>
+                                            Simbol (#$&^#* etc.)
                                         </li>
                                         <li class="flex items-center">
-                                            <i data-feather="x-circle" id="checkPassAmount"
-                                                class="text-gray-300 mr-1 w-5"></i>
-                                            A longer password (min. 12 chars.)
+                                            <i data-feather="x-circle" id="checkPassAmount" class="mr-1 w-5"></i>
+                                            Minimal 12 karakter
                                         </li>
                                     </ul>
                                 </div>
@@ -228,15 +237,16 @@
                             </div>
                         </div>
 
+
                         {{-- retype password --}}
                         <div class="col-span-2">
                             <label for="retype-password"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Konfirmasi
                                 Password</label>
                             <div class="relative">
                                 <input type="password" name="retype-password" id="retypePassword"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                    placeholder="Retype admin password" required>
+                                    placeholder="Ketik ulang password" required>
                                 <button type="button" class="absolute right-3 top-3"
                                     onclick="window.mixin.toggleRetypePasswordVisibility()">
                                     <i data-feather="eye-off" id="eye-icon" class="text-gray-600"></i>
@@ -245,8 +255,22 @@
                         </div>
                         {{-- role --}}
                         <div class="col-span-2 ">
-                            <p>Choose role for admin</p>
+                            <p>Pilih peran admin</p>
                             <div class="flex">
+                                <div class="flex ps-4 border bg-gray-300 border-gray-300 rounded dark:border-gray-700 w-[50%] m-2 ml-0">
+                                    <label for="role_1" class="flex items-center w-full cursor-pointer">
+                                        <input id="role_1" type="radio" value="1" name="is_admin" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        <span class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Super Admin</span>
+                                    </label>
+                                </div>
+                                <div class="flex ps-4 border bg-gray-300 border-gray-300 rounded dark:border-gray-700 w-[50%] m-2 mr-0">
+                                    <label for="role_0" class="flex items-center w-full cursor-pointer">
+                                        <input id="role_0" type="radio" value="0" name="is_admin" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        <span class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Admin</span>
+                                    </label>
+                                </div>
+                            </div>
+                            {{-- <div class="flex">
                                 <div
                                     class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700 w-[50%] m-2 ml-0">
                                     <input id="role_1" type="radio" value="1" name="is_admin"
@@ -262,11 +286,12 @@
                                     <label for="role_2"
                                         class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Admin</label>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
-                    <button type="submit"
-                        class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <button type="submit" id="submitBtn"
+                        class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        disabled>
                         <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -281,28 +306,101 @@
     </div>
 
     <script>
-        const checkPassUpperLower = document.getElementById("checkPassUpperLower");
-        const checkPassSymbol = document.getElementById("checkPassSymbol");
-        const checkPassAmount = document.getElementById("checkPassAmount");
-        const password = document.getElementById("password");
+        function checkPasswordStrength() {
+            const password = document.getElementById('password').value;
+            const submitBtn = document.getElementById('submitBtn');
 
-        if (password) {
-            password.addEventListener("input", function() {
-                const passwordValue = password.value;
+            // Icons
+            const checkPassUpperLower = document.getElementById('checkPassUpperLower');
+            const checkPassSymbol = document.getElementById('checkPassSymbol');
+            const checkPassAmount = document.getElementById('checkPassAmount');
+            const textPasswordLength = document.getElementById('textPasswordLength');
+            const iconPasswordLength = document.getElementById('iconPasswordLength');
 
-                if (/[A-Z]/.test(passwordValue) && /[a-z]/.test(passwordValue)) {
-                    checkPassUpperLower.setAttribute("data-feather", "check-circle");
-                    checkPassUpperLower.classList.add("text-green-300");
-                }
-                if (/[!@#$%^&*()]/.test(passwordValue)) {
-                    checkPassSymbol.setAttribute("data-feather", "check-circle");
-                    checkPassSymbol.classList.add("text-green-300");
-                }
-                if (passwordValue.length >= 12) {
-                    checkPassAmount.setAttribute("data-feather", "check-circle");
-                    checkPassAmount.classList.add("text-green-300");
+            // Regular expressions for each condition
+            const upperLowerCase = /^(?=.*[a-z])(?=.*[A-Z])/;
+            // const symbol = /[#\$&]/;
+            const symbol = /[!@#$%^&*()_\-+={}[\]|\\:;'"<>,.?/~]/;
+            const longPassword = /^.{12,}$/;
+
+            // Progress bars
+            const progressBars = document.querySelectorAll('.progress-bar');
+
+            let conditionsMet = 0;
+
+            // [Mandatory] check password length
+            console.log('cek password dipanggil');
+            if (password.length <= 6) {
+                textPasswordLength.classList.remove('hidden');
+                textPasswordLength.classList.add('flex');
+                iconPasswordLength.setAttribute('data-feather', 'x-circle')
+                iconPasswordLength.classList.add('text-red-600')
+            } else {
+                iconPasswordLength.setAttribute('data-feather', 'check-circle');
+                iconPasswordLength.classList.remove('text-red-600');
+                iconPasswordLength.classList.add('text-green-600');
+            }
+            // if (password.length >= 6) {
+            //     textPasswordLength.classList.remove('hidden');
+            //     textPasswordLength.classList.add('flex');
+            //     iconPasswordLength.setAttribute('data-feather', 'check-circle');
+            //     iconPasswordLength.classList.remove('text-red-600');
+            //     iconPasswordLength.classList.add('text-green-600');
+            // } else {
+            //     iconPasswordLength.setAttribute('data-feather', 'x-circle');
+            //     iconPasswordLength.classList.remove('text-green-600');
+            //     iconPasswordLength.classList.add('text-red-600');
+            // }
+
+            // Upper & lower case letters
+            if (upperLowerCase.test(password)) {
+                correctInput(checkPassUpperLower);
+                conditionsMet++;
+            } else {
+                wrongInput(checkPassUpperLower);
+            }
+
+            // Symbol (#, $, &)
+            if (symbol.test(password)) {
+                correctInput(checkPassSymbol);
+                conditionsMet++;
+            } else {
+                wrongInput(checkPassSymbol);
+            }
+
+            // Minimum length of 12 characters
+            if (longPassword.test(password)) {
+                correctInput(checkPassAmount);
+                conditionsMet++;
+            } else {
+                wrongInput(checkPassAmount);
+            }
+
+            // Update progress bars based on the number of conditions met
+            progressBars.forEach((bar, index) => {
+                if (index < conditionsMet) {
+                    bar.classList.remove('bg-gray-200', 'dark:bg-gray-600');
+                    bar.classList.add('bg-green-500');
+                } else {
+                    bar.classList.remove('bg-green-500');
+                    bar.classList.add('bg-gray-200', 'dark:bg-gray-600');
                 }
             });
+
+            // Re-render Feather icons
+            feather.replace();
+        }
+
+        function correctInput(element) {
+            element.setAttribute('data-feather', 'check-circle');
+            element.classList.remove('text-gray-700');
+            element.classList.add('text-green-500');
+        }
+
+        function wrongInput(element) {
+            element.setAttribute('data-feather', 'x-circle');
+            element.classList.remove('text-green-500');
+            element.classList.add('text-gray-700');
         }
     </script>
 

@@ -12,6 +12,7 @@ use App\Http\Controllers\Dashboard\NavItemsController;
 use App\Http\Controllers\Dashboard\AdminUsersController;
 use App\Http\Controllers\Dashboard\AdminCategoryController;
 use App\Http\Controllers\Dashboard\DashboardPostController;
+use App\Http\Controllers\Dashboard\AdminDashboardController;
 use App\Http\Controllers\Dashboard\AdminFeaturedPostsController;
 
 //HOME
@@ -36,11 +37,12 @@ Route::post('/admin', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
 //DASHBOARD
-Route::get('/dashboard', function () {
-    return view('dashboard.index', [
-        'title' => 'Admin Dashboard'
-    ]);
-})->name('dashboard')->middleware('auth');
+Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+// Route::get('/dashboard', function () {
+//     return view('dashboard.index', [
+//         'title' => 'Admin Dashboard'
+//     ]);
+// })->name('dashboard')->middleware('auth');
 
 //dashboard posts
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
@@ -65,6 +67,10 @@ Route::group(['prefix' => 'dashboard/manage-posts', 'middleware' => 'admin'], fu
     Route::patch('/featured/{post}/pin', [AdminFeaturedPostsController::class, 'pin'])->name('pin');
     Route::patch('/featured/{post}/unpin', [AdminFeaturedPostsController::class, 'unpin'])->name('unpin');
 });
+
+
+
+
 
 
 // Route::resource('/dashboard/manage-posts/categories', AdminCategoryController::class)->except('show')->middleware('admin');

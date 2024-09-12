@@ -24,7 +24,7 @@
                 <a href="{{ route('dashboard') }}"
                     class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ Request::is('dashboard') ? 'bg-blue-400' : '' }}">
                     <i data-feather="user"></i>
-                    <span class="ml-3">Dashboard Admin</span>
+                    <span class="ml-3">Dashboard</span>
                 </a>
             </li>
             <li>
