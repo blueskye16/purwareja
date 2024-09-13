@@ -27,17 +27,17 @@ class AdminUsersController extends Controller
      */
     public function create(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => ['required', 'max:255'],
-            'email' => ['required', 'email', 'unique:users'],
-            'password' => ['required'],
-            'retype-password' => ['required'],
-            'is_admin' => ['required']
-        ]);
+        // $validatedData = $request->validate([
+        //     'name' => ['required', 'max:255'],
+        //     'email' => ['required', 'email', 'unique:users'],
+        //     'password' => ['required'],
+        //     'retype-password' => ['required'],
+        //     'is_admin' => ['required']
+        // ]);
 
-        if ($validatedData['retype-password'] !== $validatedData['password']) {
-            return redirect()->back()->withErrors(['retype-password' => 'Passwords do not match!']);
-        }
+        // if ($validatedData['retype-password'] !== $validatedData['password']) {
+        //     return redirect()->back()->withErrors(['retype-password' => 'Passwords do not match!'])->withInput();
+        // }
     }
 
     /**
@@ -55,7 +55,7 @@ class AdminUsersController extends Controller
         ]);
 
         if ($validatedData['retype-password'] !== $validatedData['password']) {
-            return redirect()->back()->withErrors(['retype-password' => 'Passwords do not match!']);
+            return redirect()->back()->withErrors(['retype-password' => 'Passwords do not match!'])->withInput($request->all());
         }
 
         User::create($validatedData);

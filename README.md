@@ -13,7 +13,9 @@
 - intinya buat bikin pinned post, mesti nyentuh database buat nyimpen value yg mau di pin
   - buat fitur edit navigasi juga sama keliatannya
 
-
+#### UPDATE 
+  - bagian create user uda bisa nambahin ke database
+    - [error] kalo ada data yang salah / gasesuai sama validatedData[controller] masih blm bisa nampilin karena pake modal buat nambahin datanya (data dicek pas udh dikirim via controller)
 
 ### 
 ## belum migrasi tabel baru ## ============================================
