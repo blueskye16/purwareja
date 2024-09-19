@@ -45,13 +45,14 @@ Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dash
 // })->name('dashboard')->middleware('auth');
 
 //dashboard posts
-Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
-    Route::get('/posts/checkSlug', [DashboardPostController::class, 'checkSlug']);
-    Route::resource('/posts', DashboardPostController::class);
-    Route::post('/posts', [DashboardPostController::class, 'upload']);
-});
-// Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
-// Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
+// Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
+//     Route::get('/posts/checkSlug', [DashboardPostController::class, 'checkSlug']);
+//     Route::resource('/posts', DashboardPostController::class);
+//     Route::post('/posts', [DashboardPostController::class, 'upload']);
+// });
+Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/dashboard/posts', DashboardPostController::class)->except('show')->middleware('auth');
+Route::post('/dashboard/posts', [DashboardPostController::class, 'upload'])->middleware('auth');
 
 // admin users
 Route::resource('/dashboard/users', AdminUsersController::class)->except('show')->middleware('admin');

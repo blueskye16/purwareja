@@ -41,7 +41,7 @@ class DashboardPostController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
+        dd($request);
         // return $request->file('image')->store('post-images');
 
         $validatedData = $request->validate([

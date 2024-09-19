@@ -122,10 +122,10 @@
         //     e.preventDefault();
         // });
 
-        element.editor.undo()
-        element.editor.redo()
+        // element.editor.undo()
+        // element.editor.redo()
         
     </script>
-    <script src="{{ asset('js/attachments.js') }}"></script>
+    {{-- <script src="{{ asset('js/attachments.js') }}"></script> --}}
 
 </x-dashboard.layout>
