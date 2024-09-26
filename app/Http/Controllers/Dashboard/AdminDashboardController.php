@@ -21,7 +21,7 @@ class AdminDashboardController extends Controller
     //   ]);
     // }
 
-  public function index()
+    public function index()
     {
         $posts = Post::all();
         $lastPost = Post::latest()->first(); // get the latest post
@@ -36,5 +36,5 @@ class AdminDashboardController extends Controller
             'lastPostTitle' => $lastPost->title, // pass the title of the latest post
 
         ]);
-    } 
+    }
 }
